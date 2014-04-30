@@ -1,0 +1,14 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[user]
+	name = Angermueller Christof
+	email = cangermueller@gmail.com
+[color]
+	ui = true
+[pager]
+	diff =
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
