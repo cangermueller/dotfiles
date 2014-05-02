@@ -11,20 +11,27 @@ case "$TERM" in
 esac
 
 
-#export EDITOR="vim"
-#export SVN_EDITOR=$EDITOR
-export VID="$HOME/.vim"
-export VIC="$HOME/.vimrc"
+export EDITOR="vim"
+export SVN_EDITOR=$EDITOR
+export VD="$HOME/.vim"
+export VRC="$HOME/.vimrc"
 
 alias ll='ls -Al'
 alias la='ls -A'
-alias vcs="rm -f \.*swp"
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-#alias vi='vim'
+
+alias vcs="rm -f \.*swp"
+alias vi="vim"
+alias vip="vim -p"
+
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console --existing'
+
+alias gits='git status'
+alias gitc='git commit'
+alias gitca='git commit -a'
 
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
