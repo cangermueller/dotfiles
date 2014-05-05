@@ -21,6 +21,7 @@ alias la='ls -A'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias le='less'
 
 alias vcs="rm -f \.*swp"
 alias vi="vim"
@@ -32,6 +33,9 @@ alias ipc='ipython console --existing'
 alias gits='git status'
 alias gitc='git commit'
 alias gitca='git commit -a'
+
+alias tma='tmux attach'
+alias tms='tmux new -s'
 
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
