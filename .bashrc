@@ -30,7 +30,7 @@ alias vip="vim -p"
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console --existing'
 
-alias gits='git status'
+alias gits='git status -u'
 alias gitc='git commit'
 alias gitca='git commit -a'
 
