@@ -23,12 +23,14 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias le='less'
 
+alias mv='mv -i' # prompt before overwriting files
+
 alias vcs="rm -f \.*swp"
 alias vi="vim"
 alias vip="vim -p"
 
 alias ipn='ipython notebook --no-browser'
-alias ipc='ipython console --existing'
+alias ipc='ipython console'
 
 alias gits='git status -u'
 alias gitc='git commit'
