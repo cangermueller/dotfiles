@@ -29,7 +29,7 @@ if(interactive()){
     setOutputColors256(verbose = FALSE)
   }
   library(setwidth)
-  library(vimcom.plus)
+  library(vimcom)
   # See R documentation on Vim buffer even if asking for help in R Console:
   options(help_type = "text", pager = file.path(Sys.getenv('HOME'), 'bin/vimrpager'))
   if(Sys.getenv("VIM_PANE") != "")
