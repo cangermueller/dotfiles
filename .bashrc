@@ -39,8 +39,6 @@ alias gitca='git commit -a'
 alias tma='tmux attach'
 alias tms='tmux new -s'
 
-alias pyt='py.test-2.7 -v -s'
-
 
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
