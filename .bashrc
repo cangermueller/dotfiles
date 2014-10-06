@@ -26,8 +26,7 @@ alias le='less'
 alias mv='mv -i' # prompt before overwriting files
 
 alias vcs="rm -f \.*swp"
-alias vi="vim"
-alias vip="vim -p"
+alias vi="vim -p"
 
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
@@ -38,6 +37,20 @@ alias gitca='git commit -a'
 
 alias tma='tmux attach'
 alias tms='tmux new -s'
+
+alias cx='chmod u+x'
+function countd {
+  ls $1 | wc -l
+}
+
+function knit2pdf {
+  rnw=${1:-main.Rnw}
+  Rscript -e "library(knitr); knit2pdf('$rnw')"
+}
+
+function zipd {
+  zip -r $(basename $1).zip $1
+}
 
 
 export PATH="$HOME/bin:$PATH"
