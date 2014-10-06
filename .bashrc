@@ -15,6 +15,7 @@ export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
 export VD="$HOME/.vim"
 export VRC="$HOME/.vimrc"
+export SRC="$HOME/.ssh/config"
 
 alias ll='ls -Al'
 alias la='ls -A'
@@ -26,7 +27,8 @@ alias le='less'
 alias mv='mv -i' # prompt before overwriting files
 
 alias vcs="rm -f \.*swp"
-alias vi="vim -p"
+alias vi="vim -Xp"
+alias vir="vim --servername VIM -p"
 
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
@@ -36,9 +38,8 @@ alias gitc='git commit'
 alias gitca='git commit -a'
 
 alias tma='tmux attach'
-alias tms='tmux new -s'
-
 alias cx='chmod u+x'
+
 function countd {
   ls $1 | wc -l
 }
