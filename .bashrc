@@ -17,7 +17,7 @@ export VD="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export SRC="$HOME/.ssh/config"
 
-alias ll='ls -Al'
+alias ll='ls -Alh'
 alias la='ls -A'
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -39,6 +39,7 @@ alias gitc='git commit'
 
 alias tma='tmux attach'
 alias cx='chmod u+x'
+alias pyt='py.test-3.4 -vs'
 
 function countd {
   ls $1 | wc -l
@@ -51,6 +52,11 @@ function knit2pdf {
 
 function zipd {
   zip -r $(basename $1).zip $1
+}
+
+function ve {
+  dir=${1:-.venv}
+  source $dir/bin/activate
 }
 
 
