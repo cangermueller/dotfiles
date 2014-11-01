@@ -25,6 +25,7 @@ alias ....='cd ../../../'
 alias le='less'
 
 alias mv='mv -i' # prompt before overwriting files
+alias du='du -h'
 
 alias vcs="rm -f \.*swp"
 alias vi="vim -Xp"
