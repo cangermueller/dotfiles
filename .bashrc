@@ -36,6 +36,7 @@ alias ipc='ipython console'
 
 alias gits='git status -u'
 alias gitc='git commit'
+alias gita='git annex'
 
 alias tma='tmux attach'
 alias cx='chmod u+x'
