@@ -17,6 +17,9 @@ export VD="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export SRC="$HOME/.ssh/config"
 
+export GIT_SSL_NO_VERIFY=true # avoid SSL problem
+
+
 alias ll='ls -Alh'
 alias la='ls -A'
 alias ..='cd ../'
