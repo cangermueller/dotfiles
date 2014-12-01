@@ -31,8 +31,7 @@ alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 
 alias vcs="rm -f \.*swp"
-# alias vi="vim -Xp"
-alias vi="vim -Xp --servername VIM -p"
+alias vi="vim --servername VIM -p"
 
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'

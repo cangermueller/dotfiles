@@ -1,4 +1,5 @@
-options("width"=100)
+options('width'=100)
+options('max.print'=100)
 
 print_memory <- function(object=NULL, units='Mb') {
   if (!is.null(object)) {
