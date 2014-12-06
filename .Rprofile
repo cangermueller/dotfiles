@@ -1,9 +1,9 @@
 options('width'=100)
-options('max.print'=100)
+options('max.print'=300)
 
-print_memory <- function(object=NULL, units='Mb') {
+memsize <- function(object=NULL, units='Mb') {
   if (!is.null(object)) {
-    print(object.size(object), units='Mb')
+    print(format(object.size(object), units=units))
   } else {
     object.names = ls(env=globalenv())
     sizes <- lapply(object.names, function(x) object.size(get(x)))
@@ -11,7 +11,7 @@ print_memory <- function(object=NULL, units='Mb') {
     sizes <- sizes[order(unlist(sizes), decreasing=T)]
     for (i in 1:length(sizes)) {
       print(names(sizes)[i])
-      print(sizes[[i]], units=units)
+      print(format(sizes[[i]], units=units))
     }
   }
 }
