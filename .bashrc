@@ -52,6 +52,26 @@ function knit2pdf {
   Rscript -e "library(knitr); knit2pdf('$rnw')"
 }
 
+function runApp {
+  file=${1:-main.Rmd}
+  shift
+  args=${@:-launch.browser = T}
+  if [ ! -z "$args" ]; then
+    args=", $args"
+  fi
+  Rscript -e "library(methods); shiny::runApp('$file'$args)"
+}
+
+function runRmd {
+  file=${1:-main.Rmd}
+  shift
+  args=$@
+  if [ ! -z "$args" ]; then
+    args=", $args"
+  fi
+  Rscript -e "library(methods); rmarkdown::run('$file'$args)"
+}
+
 function zipd {
   zip -r $(basename $1).zip $1
 }
