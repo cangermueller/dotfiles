@@ -42,6 +42,7 @@ alias gita='git annex'
 alias tma='tmux attach'
 alias cx='chmod u+x'
 alias pyt='py.test-3.4 -vs'
+alias open_ports='sudo netstat -tulpn'
 
 function countd {
   ls $1 | wc -l
