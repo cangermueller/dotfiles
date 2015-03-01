@@ -31,8 +31,4 @@ if(interactive()){
   }
   library(setwidth)
   library(vimcom)
-  # See R documentation on Vim buffer even if asking for help in R Console:
-  options(help_type = "text", pager = file.path(Sys.getenv('HOME'), 'bin/vimrpager'))
-  if(Sys.getenv("VIM_PANE") != "")
-    options(pager = vim.pager)
 }

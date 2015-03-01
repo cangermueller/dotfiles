@@ -30,6 +30,8 @@ alias le='less'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 alias grep='grep --color'
+alias dir='tree -L 3'
+alias less='less -S' # no line wrap
 
 alias vcs="rm -f \.*swp"
 alias vi="vim --servername VIM -p"
