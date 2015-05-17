@@ -1,5 +1,6 @@
 stty -ixon  # disable <c-s> flow control
-shopt -s extglob
+stty erase ˆH # pudb; mac key mapping
+# shopt -s extglob
 
 case "$TERM" in
     xterm-*color | xterm | screen)
@@ -19,38 +20,48 @@ export SRC="$HOME/.ssh/config"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 
-
 alias ll='ls -Alh'
 alias la='ls -A'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias le='less'
-
+alias rr='rm -r'
+alias rf='rm -rf'
+alias cr='cp -r'
+alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 alias grep='grep --color'
-alias dir='tree -L 3'
+alias tree='tree -L 3'
 alias less='less -S' # no line wrap
+alias findf='find . -name '
 
 alias vcs="rm -f \.*swp"
 alias vi="vim --servername VIM -p"
+alias vim="vim --servername VIM -p"
 
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
 alias ips='ipython nbconvert --to slides --post serve'
+alias pyt='py.test-3.4 -v -s'
+alias pudb='pudb3'
 
 alias gits='git status -u'
 alias gitc='git commit'
 alias gita='git annex'
 
 alias tma='tmux attach'
-alias cx='chmod u+x'
-alias pyt='py.test-3.4 -vs'
 alias open_ports='sudo netstat -tulpn'
 
-function countd {
-  ls $1 | wc -l
+function cdd {
+  if [ -z "$1" ]; then
+    dir=$(ls | sort | tail -n 1)
+  else
+    dir=$(ls | grep $1$ | tail -n 1)
+  fi
+  if [ -n "$dir" ]; then
+    cd $dir
+  fi
 }
 
 function knit2pdf {
@@ -58,17 +69,13 @@ function knit2pdf {
   Rscript -e "library(knitr); knit2pdf('$rnw')"
 }
 
-function runApp {
+function rmd2x {
   file=${1:-main.Rmd}
-  shift
-  args=${@:-launch.browser = T}
-  if [ ! -z "$args" ]; then
-    args=", $args"
-  fi
-  Rscript -e "library(methods); shiny::runApp('$file'$args)"
+  out=${2:-html}  # html, pdf, word
+  Rscript -e "library(rmarkdown); render('$file', output_format='${out}_document')"
 }
 
-function runRmd {
+function rmdRun {
   file=${1:-main.Rmd}
   shift
   args=$@
@@ -78,13 +85,22 @@ function runRmd {
   Rscript -e "library(methods); rmarkdown::run('$file'$args)"
 }
 
-function zipd {
-  zip -r $(basename $1).zip $1
+function shinyRun {
+  file=${1:-main.Rmd}
+  shift
+  args=${@:-launch.browser = T}
+  if [ ! -z "$args" ]; then
+    args=", $args"
+  fi
+  Rscript -e "library(methods); shiny::runApp('$file'$args)"
 }
 
-function ve {
-  dir=${1:-.venv}
-  source $dir/bin/activate
+function countd {
+  ls ${1:-.} | wc -l
+}
+
+function zipd {
+  zip -r $(basename $1).zip $1
 }
 
 
