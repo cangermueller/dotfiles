@@ -1,6 +1,7 @@
 stty -ixon  # disable <c-s> flow control
 stty erase ˆH # pudb; mac key mapping
-# shopt -s extglob
+shopt -s extglob
+
 
 case "$TERM" in
     xterm-*color | xterm | screen)
@@ -39,19 +40,28 @@ alias findf='find . -name '
 alias vcs="rm -f \.*swp"
 alias vi="vim --servername VIM -p"
 alias vim="vim --servername VIM -p"
+alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
 alias ips='ipython nbconvert --to slides --post serve'
+alias iph='ipython nbconvert --to html'
 alias pyt='py.test-3.4 -v -s'
 alias pudb='pudb3'
 
 alias gits='git status -u'
-alias gitc='git commit'
+alias gitc='git commit -m'
+alias gitca='git commit -a -m'
+alias gitd='git diff'
+alias gitp='git push'
 alias gita='git annex'
+
 
 alias tma='tmux attach'
 alias open_ports='sudo netstat -tulpn'
+
+alias wo='workon -n'
+alias won='workon'
 
 function cdd {
   if [ -z "$1" ]; then
