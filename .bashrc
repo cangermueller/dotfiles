@@ -1,7 +1,9 @@
 stty -ixon  # disable <c-s> flow control
-stty erase ˆH # pudb; mac key mapping
 shopt -s extglob
 
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 case "$TERM" in
     xterm-*color | xterm | screen)
