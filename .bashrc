@@ -48,7 +48,8 @@ alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
 alias ips='ipython nbconvert --to slides --post serve'
 alias iph='ipython nbconvert --to html'
-alias pyt='py.test-3.4 -v -s'
+alias ipH='ipython nbconvert --to html --ExecutePreprocessor.enabled=True'
+alias pyt='py.test -v -s'
 alias pudb='pudb3'
 
 alias gits='git status -u'
@@ -61,6 +62,7 @@ alias gita='git add'
 alias gitA='git add -A'
 alias gitx='git annex'
 alias gitb='git branch -a'
+alias giti='git init .'
 
 
 alias tma='tmux attach'
@@ -111,7 +113,7 @@ function shinyRun {
   Rscript -e "library(methods); shiny::runApp('$file'$args)"
 }
 
-function countd {
+function cf {
   ls ${1:-.} | wc -l
 }
 
