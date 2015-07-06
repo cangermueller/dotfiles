@@ -63,8 +63,9 @@ alias gitA='git add -A'
 alias gitx='git annex'
 alias gitb='git branch -a'
 alias giti='git init .'
+alias gitco='git checkout'
 
-
+alias makeb='make -B'
 alias tma='tmux attach'
 alias open_ports='sudo netstat -tulpn'
 
@@ -73,13 +74,17 @@ alias won='workon'
 
 function cdd {
   if [ -z "$1" ]; then
-    dir=$(ls | sort | tail -n 1)
+    dir=$(ls | tail -n 1)
   else
     dir=$(ls | grep $1$ | tail -n 1)
   fi
   if [ -n "$dir" ]; then
     cd $dir
   fi
+}
+function cds {
+  d=$(ls -d *$1 | tail -n 1)
+  cd $d
 }
 
 function knit2pdf {
