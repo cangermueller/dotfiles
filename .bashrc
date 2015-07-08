@@ -72,6 +72,7 @@ alias open_ports='sudo netstat -tulpn'
 alias wo='workon -n'
 alias won='workon'
 
+
 function cdd {
   if [ -z "$1" ]; then
     dir=$(ls | tail -n 1)
@@ -124,6 +125,24 @@ function cf {
 
 function zipd {
   zip -r $(basename $1).zip $1
+}
+
+function mzip {
+  infile=$1
+  outfile=$2
+  if [[ -z $outfile ]]; then
+    outfile=$1.gz
+  fi
+  gzip -c $infile > $outfile
+}
+
+function Mzip {
+  infile=$1
+  outfile=$2
+  if [[ -z $outfile ]]; then
+    outfile=${infile%.gz}
+  fi
+  gunzip -c $infile > $outfile
 }
 
 
