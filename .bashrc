@@ -74,18 +74,10 @@ alias won='workon'
 
 
 function cdd {
-  if [ -z "$1" ]; then
-    dir=$(ls | tail -n 1)
-  else
-    dir=$(ls | grep $1$ | tail -n 1)
-  fi
+  dir=$(find . -maxdepth 1 -type d -name "*$1" | tail -n 1)
   if [ -n "$dir" ]; then
     cd $dir
   fi
-}
-function cds {
-  d=$(ls -d *$1 | tail -n 1)
-  cd $d
 }
 
 function knit2pdf {
