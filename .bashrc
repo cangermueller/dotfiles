@@ -40,8 +40,8 @@ alias less='less -S' # no line wrap
 alias findf='find . -name '
 
 alias vcs="rm -f \.*swp"
-alias vi="vim --servername VIM -p"
-alias vim="vim --servername VIM -p"
+alias vi="vim -p"
+alias vim="vim -p"
 alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'

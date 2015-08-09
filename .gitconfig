@@ -14,5 +14,5 @@
 	prompt = false
 [credential]
 	helper = cache
-[push]
-	default = simple
+#[push]
+#	default = simple
