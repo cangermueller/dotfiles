@@ -22,12 +22,14 @@ export VRC="$HOME/.vimrc"
 export SRC="$HOME/.ssh/config"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
-
 alias ll='ls -Alh'
 alias la='ls -A'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias l.='ls ../'
+alias l..='ls ../../'
+alias l...='ls ../../../'
 alias rr='rm -r'
 alias rf='rm -rf'
 alias cr='cp -r'
@@ -38,6 +40,9 @@ alias grep='grep --color'
 alias tree='tree -L 3'
 alias less='less -S' # no line wrap
 alias findf='find . -name '
+function bf {
+  mv $1 $1.save
+}
 
 alias vcs="rm -f \.*swp"
 alias vi="vim -p"
@@ -47,8 +52,21 @@ alias vid="vimdiff"
 alias ipn='ipython notebook --no-browser'
 alias ipc='ipython console'
 alias ips='ipython nbconvert --to slides --post serve'
-alias iph='ipython nbconvert --to html'
-alias ipH='ipython nbconvert --to html --ExecutePreprocessor.enabled=True'
+
+# call iph file 1 to execute notebook
+function iph {
+  in=$1
+  out=${in%.ipynb}.html
+  run=$2
+  cmd="ipython nbconvert --to html --output $out"
+  if [ -n "$run" ]; then
+    cmd="$cmd --ExecutePreprocessor.enabled=True"
+  fi
+  $cmd $in
+}
+
+alias ipha='for f in $(find . -not -path "./\.*" -name "*ipynb"); do iph $f; done'
+
 alias pyt='py.test -v -s'
 alias pudb='pudb3'
 
@@ -63,20 +81,26 @@ alias gitA='git add -A'
 alias gitx='git annex'
 alias gitb='git branch -a'
 alias giti='git init .'
+alias gitco='git checkout'
+alias gitbc='git rev-parse --abbrev-ref HEAD'
+# checkout current branch to directory
+function gitcod {
+  path=$1
+  if [ -n "$path" ]; then
+    git checkout-index -a -f --prefix=$path/
+  fi
+}
 
-
+alias makeb='make -B'
 alias tma='tmux attach'
 alias open_ports='sudo netstat -tulpn'
 
 alias wo='workon -n'
 alias won='workon'
 
+
 function cdd {
-  if [ -z "$1" ]; then
-    dir=$(ls | sort | tail -n 1)
-  else
-    dir=$(ls | grep $1$ | tail -n 1)
-  fi
+  dir=$(find . -maxdepth 1 -type d -name "*$1" | tail -n 1)
   if [ -n "$dir" ]; then
     cd $dir
   fi
@@ -119,6 +143,24 @@ function cf {
 
 function zipd {
   zip -r $(basename $1).zip $1
+}
+
+function mzip {
+  infile=$1
+  outfile=$2
+  if [[ -z $outfile ]]; then
+    outfile=$1.gz
+  fi
+  gzip -c $infile > $outfile
+}
+
+function Mzip {
+  infile=$1
+  outfile=$2
+  if [[ -z $outfile ]]; then
+    outfile=${infile%.gz}
+  fi
+  gunzip -c $infile > $outfile
 }
 
 
