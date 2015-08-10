@@ -41,12 +41,13 @@ alias tree='tree -L 3'
 alias less='less -S' # no line wrap
 alias findf='find . -name '
 function bf {
-  mv $1 $1.save
+  f=${1%/}
+  mv $f $f.save
 }
 
 alias vcs="rm -f \.*swp"
-alias vi="vim --servername VIM -p"
-alias vim="vim --servername VIM -p"
+alias vi="vim -p"
+alias vim="vim -p"
 alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'
