@@ -41,7 +41,8 @@ alias tree='tree -L 3'
 alias less='less -S' # no line wrap
 alias findf='find . -name '
 function bf {
-  mv $1 $1.save
+  f=${1%/}
+  mv $f $f.save
 }
 
 alias vcs="rm -f \.*swp"
