@@ -17,9 +17,13 @@ esac
 
 export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
-export VD="$HOME/.vim"
-export VRC="$HOME/.vimrc"
 export SRC="$HOME/.ssh/config"
+
+# VIM
+export VRC="$HOME/.vimrc"
+export VD="$HOME/.vim"
+export VF="$VD/ftplugin"
+export VS="$VD/spell"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
@@ -37,10 +41,11 @@ alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 alias grep='grep --color'
+alias tac='tail -r'
 alias tree='tree -L 3'
 alias less='less -S' # no line wrap
 alias findf='find . -name '
-function bf {
+function save {
   f=${1%/}
   mv $f $f.save
 }
