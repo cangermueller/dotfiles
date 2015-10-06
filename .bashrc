@@ -104,12 +104,14 @@ alias open_ports='sudo netstat -tulpn'
 alias wo='workon -n'
 alias won='workon'
 
-
 function cdd {
-  dir=$(find . -maxdepth 1 -type d -name "*$1" | tail -n 1)
-  if [ -n "$dir" ]; then
-    cd $dir
-  fi
+  files=$(find . -maxdepth 1 -name "*$1" | sort -r)
+  for file in $files; do
+    if [[ -d $file ]]; then
+      cd $file
+      break
+    fi
+  done
 }
 
 function knit2pdf {
