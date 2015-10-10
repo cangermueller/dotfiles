@@ -45,6 +45,8 @@ alias tac='tail -r'
 alias tree='tree -L 3'
 alias less='less -S' # no line wrap
 alias findf='find . -name '
+alias txf='tar -xf'
+alias tcf='tar -cf'
 function save {
   f=${1%/}
   mv $f $f.save
@@ -97,12 +99,14 @@ function gitcod {
   fi
 }
 
-alias makeb='make -B'
+alias Make='make -B'
 alias tma='tmux attach'
 alias open_ports='sudo netstat -tulpn'
 
 alias wo='workon -n'
 alias won='workon'
+
+alias wat='watch -n 1 tail -n 20'
 
 function cdd {
   files=$(find . -maxdepth 1 -name "*$1" | sort -r)
