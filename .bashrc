@@ -43,7 +43,6 @@ alias du='du -h'
 alias grep='grep --color'
 alias tac='tail -r'
 alias tree='tree -L 3'
-alias less='less -S' # no line wrap
 alias findf='find . -name '
 alias txf='tar -xf'
 alias tcf='tar -cf'
