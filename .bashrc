@@ -52,8 +52,8 @@ function save {
 }
 
 alias vcs="rm -f \.*swp"
+alias vim="vim --servername -p"
 alias vi="vim -p"
-alias vim="vim -p"
 alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'
@@ -89,6 +89,7 @@ alias gitx='git annex'
 alias gitb='git branch -a'
 alias giti='git init .'
 alias gitco='git checkout'
+alias gitl='git log'
 alias gitbc='git rev-parse --abbrev-ref HEAD'
 # checkout current branch to directory
 function gitcod {
