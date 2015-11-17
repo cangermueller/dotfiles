@@ -106,7 +106,7 @@ alias open_ports='sudo netstat -tulpn'
 
 alias wo='workon -n'
 alias won='workon'
-alias deac='deactivate'
+alias deact='deactivate'
 
 alias wat='watch -n 1 tail -n 20'
 
