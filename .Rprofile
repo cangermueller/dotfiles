@@ -1,6 +1,7 @@
 options('width'=100)
 options(dplyr.width=200)
 options('max.print'=500)
+options(repos='http://cran.rstudio.com/')
 
 # Lines added by the Vim-R-plugin command :RpluginConfig (2014-Apr-27 22:36):
 if(interactive()){

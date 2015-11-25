@@ -109,6 +109,9 @@ alias won='workon'
 alias deact='deactivate'
 
 alias wat='watch -n 1 tail -n 20'
+alias hls='h5ls'
+alias hLs='h5ls -r'
+alias hd='h5dump -d'
 
 function cdd {
   files=$(find . -maxdepth 1 -name "*$1" | sort -r)
