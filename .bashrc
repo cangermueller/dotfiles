@@ -121,8 +121,13 @@ function cdd {
 }
 
 function knit2pdf {
-  rnw=${1:-main.Rnw}
+  rnw=${1:-index.Rnw}
   Rscript -e "library(knitr); knit2pdf('$rnw')"
+}
+
+function knit2html {
+  rnw=${1:-index.Rmd}
+  Rscript -e "library(knitr); knit2html('$rnw')"
 }
 
 function rmd2x {
