@@ -47,6 +47,8 @@ alias tree='tree -L 3'
 alias findf='find . -name '
 alias txf='tar -xf'
 alias tcf='tar -cf'
+alias sql='sqlite3 -list'
+
 function save {
   f=${1%/}
   mv $f $f.save
