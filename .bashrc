@@ -43,7 +43,7 @@ alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 alias grep='grep --color'
 alias tac='tail -r'
-alias tree='tree -L 3'
+alias tree='tree -L 3 -sh'
 alias findf='find . -name '
 alias txf='tar -xf'
 alias tcf='tar -cf'
@@ -55,8 +55,8 @@ function save {
 }
 
 alias vcs="rm -f \.*swp"
-alias vim="vim --servername -p"
-alias vi="vim -p"
+alias vim="vim --servername VIM -p"
+alias vi="vim"
 alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'
