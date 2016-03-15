@@ -28,6 +28,7 @@ export VS="$VD/spell"
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
 alias la='ls -A'
+alias lD='ls -d'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
