@@ -41,3 +41,11 @@ test_df <- function(nrow=5, ncol=3) {
   names(h) <- letters[1:ncol]
   return (h)
 }
+
+Library <- function(x) {
+  suppressWarnings(
+    suppressPackageStartupMessages(
+      library(x, quietly=T, character.only=T)
+      )
+    )
+}
