@@ -28,6 +28,7 @@ export VS="$VD/spell"
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
 alias la='ls -A'
+alias lD='ls -d'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -54,9 +55,14 @@ function save {
   mv $f $f.save
 }
 
+function Save {
+  f=${1%/}
+  cp -r $f $f.save
+}
+
 alias vcs="rm -f \.*swp"
-alias vim="vim --servername -p"
-alias vi="vim -p"
+alias vim="vim --servername VIM -p"
+alias vi="vim"
 alias vid="vimdiff"
 
 alias ipn='ipython notebook --no-browser'
@@ -94,6 +100,7 @@ alias giti='git init .'
 alias gitco='git checkout'
 alias gitl='git log'
 alias gitbc='git rev-parse --abbrev-ref HEAD'
+alias gitm='git merge sync/master'
 # checkout current branch to directory
 function gitcod {
   path=$1
