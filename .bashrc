@@ -18,6 +18,8 @@ esac
 export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
 export SRC="$HOME/.ssh/config"
+export BIN="$HOME/bin"
+export TMP="$HOME/tmp"
 
 # VIM
 export VRC="$HOME/.vimrc"
@@ -45,7 +47,7 @@ alias du='du -h'
 alias grep='grep --color'
 alias tac='tail -r'
 alias tree='tree -L 3 -sh'
-alias findf='find . -name '
+alias findf='find . -iname '
 alias txf='tar -xf'
 alias tcf='tar -cf'
 alias sql='sqlite3 -list'
