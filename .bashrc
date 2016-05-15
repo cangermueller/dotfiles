@@ -67,16 +67,16 @@ alias vim="vim --servername VIM -p"
 alias vi="vim"
 alias vid="vimdiff"
 
-alias ipn='ipython notebook --no-browser'
-alias ipc='ipython console'
-alias ips='ipython nbconvert --to slides --post serve'
+alias ipc='jupyter console'
+alias ipn='jupyter notebook --no-browser'
+alias ips='jupyter nbconvert --to slides --post serve'
 
 # call iph file 1 to execute notebook
 function iph {
   in=$1
   out=${in%.ipynb}.html
   run=$2
-  cmd="ipython nbconvert --to html --output $out"
+  cmd="jupyter nbconvert --to html --output $out"
   if [ -n "$run" ]; then
     cmd="$cmd --ExecutePreprocessor.enabled=True"
   fi
