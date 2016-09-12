@@ -33,7 +33,8 @@ export Vv="$Vr/vundle.vim"
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
 alias la='ls -A'
-alias lD='ls -d'
+alias lD='ls -ld'
+alias lN='ln -s'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -47,6 +48,8 @@ alias cr='cp -r'
 alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
+alias jobs='jobs -l'
+alias Kill='kill -9'
 alias grep='grep --color'
 
 function grepR {
@@ -205,6 +208,18 @@ function Mzip {
   gunzip -c $infile > $outfile
 }
 
+
+alias cdate='date +%y%m%d_%H%M%S'
+
+function Tdir {
+  name=${1:-$RANDOM}
+  path="$HOME/temp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
+  mkdir -p $path
+  export tmp=$path
+  echo $path
+}
+
+alias Tdirc="rm -rf $HOME/temp/1*_tmpdir_*"
 
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
