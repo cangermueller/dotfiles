@@ -22,10 +22,13 @@ export BIN="$HOME/bin"
 export TMP="$HOME/tmp"
 
 # VIM
-export VRC="$HOME/.vimrc"
-export VD="$HOME/.vim"
-export VF="$VD/ftplugin"
-export VS="$VD/spell"
+export Vr="$HOME/.vim"
+export Vc="$HOME/.vimrc"
+export Vf="$VD/ftplugin"
+export Vs="$VD/spell"
+export Vp="$Vr/python.vim"
+export VR="$Vr/r.vim"
+export Vv="$Vr/vundle.vim"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
@@ -45,6 +48,12 @@ alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
 alias grep='grep --color'
+
+function grepR {
+ pattern=$1
+ grep -rI $pattern .
+}
+
 alias tac='tail -r'
 alias tree='tree -L 3 -sh'
 alias findf='find . -iname '
