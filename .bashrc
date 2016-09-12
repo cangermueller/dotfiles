@@ -51,6 +51,8 @@ alias du='du -h'
 alias jobs='jobs -l'
 alias Kill='kill -9'
 alias grep='grep --color'
+alias tx='tar xf'
+alias tc='tar cf'
 
 function grepR {
  pattern=$1
