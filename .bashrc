@@ -24,11 +24,11 @@ export TMP="$HOME/tmp"
 # VIM
 export Vr="$HOME/.vim"
 export Vc="$HOME/.vimrc"
-export Vf="$VD/ftplugin"
-export Vs="$VD/spell"
-export Vp="$Vr/python.vim"
-export VR="$Vr/r.vim"
+export Vf="$Vr/ftplugin"
+export Vs="$Vr/spell"
 export Vv="$Vr/vundle.vim"
+export Vp="$Vf/python.vim"
+export VR="$Vf/r.vim"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
@@ -213,7 +213,7 @@ alias cdate='date +%y%m%d_%H%M%S'
 
 function Tdir {
   name=${1:-$RANDOM}
-  path="$HOME/temp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
+  path="$TMP/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
   mkdir -p $path
   export tmp=$path
   echo $path
