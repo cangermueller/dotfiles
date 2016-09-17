@@ -23,7 +23,7 @@ export TMP="$HOME/tmp"
 
 # VIM
 export Vr="$HOME/.vim"
-export Vc="$HOME/.vimrc"
+export VRC="$HOME/.vimrc"
 export Vf="$Vr/ftplugin"
 export Vs="$Vr/spell"
 export Vv="$Vr/vundle.vim"
