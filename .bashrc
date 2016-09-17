@@ -54,7 +54,7 @@ alias grep='grep --color'
 alias tx='tar xf'
 alias tc='tar cf'
 
-function grepR {
+function grepr {
  pattern=$1
  grep -rI $pattern .
 }
