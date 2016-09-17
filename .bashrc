@@ -210,6 +210,14 @@ function Mzip {
   gunzip -c $infile > $outfile
 }
 
+function Mkdir {
+  name=$(date '+%y%m%d')
+  if [[ -n $1 ]]; then
+    name="${name}_$1"
+  fi
+  mkdir $name
+}
+
 
 alias cdate='date +%y%m%d_%H%M%S'
 
