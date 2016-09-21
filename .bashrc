@@ -60,7 +60,8 @@ function grepr {
 }
 
 alias tac='tail -r'
-alias tree='tree -L 3 -sh'
+alias tree='tree -L 3 -shC'
+alias Tree='vi .'
 alias findf='find . -iname '
 alias txf='tar -xf'
 alias tcf='tar -cf'
