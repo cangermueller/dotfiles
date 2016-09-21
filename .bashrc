@@ -22,13 +22,17 @@ export BIN="$HOME/bin"
 export TMP="$HOME/tmp"
 
 # VIM
-export Vr="$HOME/.vim"
+export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
-export Vf="$Vr/ftplugin"
-export Vs="$Vr/spell"
-export Vv="$Vr/vundle.vim"
-export Vp="$Vf/python.vim"
-export VR="$Vf/r.vim"
+export VS="$VR/spell"
+export VV="$VR/vundle.vim"
+export VF="$VR/ftplugin"
+export VFP="$VF/python.vim"
+export VFR="$VF/r.vim"
+
+# Python
+export IPY="$HOME/.ipython"
+export IPP="$IPY/profile_default/startup/00_profile.py"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
@@ -115,6 +119,7 @@ alias gitx='git annex'
 alias gitb='git branch -a'
 alias giti='git init .'
 alias gitco='git checkout'
+alias gitcl='git clone'
 alias gitl='git log'
 alias gitbc='git rev-parse --abbrev-ref HEAD'
 alias gitm='git merge sync/master'
@@ -125,6 +130,10 @@ function gitcod {
     git checkout-index -a -f --prefix=$path/
   fi
 }
+
+alias pipl='pip list'
+alias pipi='pip install'
+alias pipI='pip install -u'
 
 alias Make='make -B'
 alias tma='tmux attach'
@@ -211,7 +220,7 @@ function Mzip {
   gunzip -c $infile > $outfile
 }
 
-function Mkdir {
+function ddir {
   name=$(date '+%y%m%d')
   if [[ -n $1 ]]; then
     name="${name}_$1"
