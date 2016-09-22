@@ -58,11 +58,6 @@ alias grep='grep --color'
 alias tx='tar xf'
 alias tc='tar cf'
 
-function grepr {
- pattern=$1
- grep -rI $pattern .
-}
-
 alias tac='tail -r'
 alias tree='tree -L 3 -shC'
 alias Tree='vi .'
@@ -70,6 +65,11 @@ alias findf='find . -iname '
 alias txf='tar -xf'
 alias tcf='tar -cf'
 alias sql='sqlite3 -list'
+
+function grepr {
+ pattern=$1
+ grep -rI $pattern .
+}
 
 function save {
   f=${1%/}
@@ -240,6 +240,12 @@ function Tdir {
 }
 
 alias Tdirc="rm -rf $HOME/temp/1*_tmpdir_*"
+
+export TES="$HOME/research/test"
+export TESP="$TES/test.py"
+export TESS="$TES/test.sh"
+export TESR="$TES/test.Rmd"
+
 
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
