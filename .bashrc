@@ -32,7 +32,7 @@ export VFR="$VF/r.vim"
 
 # Python
 export IPY="$HOME/.ipython"
-export IPP="$IPY/profile_default/startup/00_profile.py"
+export IPYP="$IPY/profile_default/startup/00_profile.py"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
