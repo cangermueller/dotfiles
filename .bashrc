@@ -81,6 +81,11 @@ function Save {
   cp -r $f $f.save
 }
 
+function Xargs {
+  cmd=$1
+  xargs -Ix $cmd x
+}
+
 alias vcs="rm -f \.*swp"
 alias vim="vim --servername VIM -p"
 alias vi="vim"
@@ -159,6 +164,13 @@ function cdd {
     fi
   done
 }
+
+function countf {
+  dir=${1:-.}
+  ls $dir | wc -l
+}
+
+
 
 function knit2pdf {
   rnw=${1:-index.Rnw}
