@@ -17,7 +17,6 @@ if(interactive()){
     setOutputColors256(verbose = FALSE)
   }
   library(setwidth)
-  library(vimcom)
 }
 
 memsize <- function(object=NULL, units='Mb') {
