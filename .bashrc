@@ -37,7 +37,8 @@ export IPYP="$IPY/profile_default/startup/00_profile.py"
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
 alias la='ls -A'
-alias lD='ls -ld'
+alias lD='ls -d'
+alias lDl='ls -ld'
 alias lN='ln -s'
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -88,7 +89,7 @@ function Xargs {
 
 alias vcs="rm -f \.*swp"
 alias vim="vim --servername VIM -p"
-alias vi="vim"
+alias vi="vim --servername VIM -p"
 alias vid="vimdiff"
 
 alias ipc='jupyter console'
@@ -167,8 +168,7 @@ function cdd {
 }
 
 function countf {
-  dir=${1:-.}
-  ls $dir | wc -l
+  ls -d $@ | wc -l
 }
 
 
