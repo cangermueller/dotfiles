@@ -115,13 +115,13 @@ alias pudb='pudb3'
 
 alias gits='git status -u'
 alias gitc='git commit -m'
-alias gitca='git commit -a -m'
+alias gitca='git add -A && git commit -a -m'
 alias gitcm='git commit -a -m "Minor changes"'
+alias gita='git add'
+alias gitA='git add -A'
 alias gitd='git diff'
 alias gitp='git pull'
 alias gitP='git push'
-alias gita='git add'
-alias gitA='git add -A'
 alias gitx='git annex'
 alias gitb='git branch -a'
 alias giti='git init .'
@@ -254,6 +254,7 @@ alias Tdirc="rm -rf $HOME/temp/1*_tmpdir_*"
 
 export TES="$HOME/research/test"
 export TESP="$TES/test.py"
+alias testp="python $TESP"
 export TESS="$TES/test.sh"
 export TESR="$TES/test.Rmd"
 
