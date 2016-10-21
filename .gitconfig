@@ -13,7 +13,7 @@
 [difftool]
 	prompt = false
 [credential]
-	helper = cache
+	helper = cache --timeout=86400
 [push]
 	default = simple
 [filter "lfs"]
