@@ -130,7 +130,7 @@ alias gitco='git checkout'
 alias gitcl='git clone'
 alias gitl='git log'
 alias gitbc='git rev-parse --abbrev-ref HEAD'
-alias gitm='git merge sync/master'
+alias gitms='git merge sync/master'
 # checkout current branch to directory
 function gitcod {
   path=$1
