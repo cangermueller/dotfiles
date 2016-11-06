@@ -53,6 +53,7 @@ alias cr='cp -r'
 alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias du='du -h'
+alias df='df -h'
 alias jobs='jobs -l'
 alias Kill='kill -9'
 alias grep='grep --color'
@@ -61,6 +62,8 @@ alias tc='tar cf'
 
 alias tac='tail -r'
 alias tree='tree -L 3 -shC'
+alias tr.='tree -L 2'
+alias tr..='tree -L 3'
 alias Tree='vi .'
 alias findf='find . -iname '
 alias txf='tar -xf'
@@ -243,7 +246,7 @@ function ddir {
 
 alias cdate='date +%y%m%d_%H%M%S'
 
-function Tdir {
+function tdir {
   name=${1:-$RANDOM}
   path="$TMP/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
   mkdir -p $path
@@ -251,7 +254,7 @@ function Tdir {
   echo $path
 }
 
-alias Tdirc="rm -rf $HOME/temp/1*_tmpdir_*"
+alias tdirc="rm -rf $TMP/1*_tmpdir_*"
 
 export TES="$HOME/research/test"
 export TESP="$TES/test.py"
