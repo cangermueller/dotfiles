@@ -70,6 +70,7 @@ alias txf='tar -xf'
 alias tcf='tar -cf'
 alias sql='sqlite3 -list'
 alias less='less -S'
+alias scp='scp -r'
 
 function grepr {
  pattern=$1
