@@ -61,9 +61,6 @@ alias tx='tar xf'
 alias tc='tar cf'
 
 alias tac='tail -r'
-alias tree='tree -L 3 -shC'
-alias tr.='tree -L 2'
-alias tr..='tree -L 3'
 alias Tree='vi .'
 alias findf='find . -iname '
 alias txf='tar -xf'
@@ -71,6 +68,11 @@ alias tcf='tar -cf'
 alias sql='sqlite3 -list'
 alias less='less -S'
 alias scp='scp -r'
+
+function tre {
+  depth=${1:-5}
+  tree -L $depth -shC
+}
 
 function grepr {
  pattern=$1
