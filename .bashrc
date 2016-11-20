@@ -216,11 +216,15 @@ function shinyRun {
   Rscript -e "library(methods); shiny::runApp('$file'$args)"
 }
 
+
 function zipd {
   zip -r $(basename $1).zip $1
 }
 
-function mzip {
+alias gz="gzip"
+alias gZ="gunzip"
+
+function mz {
   infile=$1
   outfile=$2
   if [[ -z $outfile ]]; then
@@ -229,7 +233,7 @@ function mzip {
   gzip -c $infile > $outfile
 }
 
-function Mzip {
+function mZ {
   infile=$1
   outfile=$2
   if [[ -z $outfile ]]; then
@@ -237,6 +241,22 @@ function Mzip {
   fi
   gunzip -c $infile > $outfile
 }
+
+function mva {
+  src_files=($@)
+  nb_file=${#src_files[*]}
+  dst_name=${src_files[$nb_file-1]}
+  unset src_files[$nb_file-1]
+  src_files=${src_files[*]}
+  for src_file in $src_files; do
+    file_ext=$(basename $src_file)
+    file_ext=${file_ext#*\.}
+    cmd="mv $src_file $dst_name.$file_ext"
+    echo $cmd
+    eval $cmd
+  done
+}
+
 
 function ddir {
   name=$(date '+%y%m%d')
