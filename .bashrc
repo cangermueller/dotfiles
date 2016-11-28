@@ -175,10 +175,10 @@ function cdd {
 }
 
 function countf {
-  ls -d $@ | wc -l
+  files=${@:-*}
+  cmd="ls -d $files | wc -l"
+  eval $cmd
 }
-
-
 
 function knit2pdf {
   rnw=${1:-index.Rnw}
