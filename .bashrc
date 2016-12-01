@@ -122,10 +122,11 @@ alias pudb='pudb3'
 
 alias gits='git status -u'
 alias gitc='git commit -m'
-alias gitca='git add -A && git commit -a -m'
+alias gitca='git add -A :/ && git commit -a -m'
 alias gitcm='git commit -a -m "Minor changes"'
 alias gita='git add'
-alias gitA='git add -A'
+alias gitm='git mv'
+alias gitA='git add -A :/'
 alias gitd='git diff'
 alias gitp='git pull'
 alias gitP='git push'
@@ -174,7 +175,7 @@ function cdd {
   done
 }
 
-function countf {
+function cf {
   files=${@:-*}
   cmd="ls -d $files | wc -l"
   eval $cmd
