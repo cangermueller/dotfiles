@@ -67,6 +67,7 @@ alias txf='tar -xf'
 alias tcf='tar -cf'
 alias sql='sqlite3 -list'
 alias less='less -S'
+alias le='less -S'
 alias scp='scp -r'
 
 function tre {
@@ -221,6 +222,8 @@ function shinyRun {
 function zipd {
   zip -r $(basename $1).zip $1
 }
+
+alias zipr="zip -r"
 
 alias gz="gzip"
 alias gZ="gunzip"
