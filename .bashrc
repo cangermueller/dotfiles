@@ -61,6 +61,7 @@ alias tx='tar xf'
 alias tc='tar cf'
 
 alias tac='tail -r'
+alias tree='tree -shC -L 3'
 alias Tree='vi .'
 alias findf='find . -iname '
 alias txf='tar -xf'
@@ -70,8 +71,8 @@ alias less='less -S'
 alias le='less -S'
 alias scp='scp -r'
 
-function tre {
-  depth=${1:-5}
+function tree {
+  depth=${1:-2}
   tree -L $depth -shC
 }
 
@@ -81,18 +82,35 @@ function grepr {
 }
 
 function save {
-  f=${1%/}
-  mv $f $f.save
+  a=${1%/}
+  if [[ $a == *.save ]]; then
+    b=${a%.save}
+  else
+    b="$a.save"
+  fi
+  mv $a $b
 }
 
 function Save {
-  f=${1%/}
-  cp -r $f $f.save
+  a=${1%/}
+  if [[ $a == *.save ]]; then
+    b=${a%.save}
+  else
+    b="$a.save"
+  fi
+  cp -r $a $b
 }
 
 function Xargs {
   cmd=$1
   xargs -Ix $cmd x
+}
+
+function geti {
+  i=$1
+  shift
+  values=($@)
+  echo ${values[$i]}
 }
 
 alias vcs="rm -f \.*swp"
@@ -167,7 +185,11 @@ alias hLs='h5ls -r'
 alias hd='h5dump -d'
 
 function cdd {
-  files=$(find . -maxdepth 1 -name "*$1" | sort -r)
+  cmd="find . -maxdepth 1 -not -path '*/\.*' -name"
+  files=$($cmd "1*$1" | sort -r)
+  if [ -z "$files" ]; then
+    files=$($cmd "*$1" | sort -r)
+  fi
   for file in $files; do
     if [[ -d $file ]]; then
       cd $file
@@ -285,9 +307,11 @@ alias tdirc="rm -rf $TMP/1*_tmpdir_*"
 
 export TES="$HOME/research/test"
 export TESP="$TES/test.py"
-alias testp="python $TESP"
 export TESS="$TES/test.sh"
 export TESR="$TES/test.Rmd"
+
+alias tesp="python $TESP"
+alias tess="$TESS"
 
 
 export PATH="$HOME/bin:$PATH"
