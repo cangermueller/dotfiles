@@ -61,8 +61,6 @@ alias tx='tar xf'
 alias tc='tar cf'
 
 alias tac='tail -r'
-alias tree='tree -shC -L 3'
-alias Tree='vi .'
 alias findf='find . -iname '
 alias txf='tar -xf'
 alias tcf='tar -cf'
@@ -71,7 +69,7 @@ alias less='less -S'
 alias le='less -S'
 alias scp='scp -r'
 
-function tree {
+function dir {
   depth=${1:-2}
   tree -L $depth -shC
 }
