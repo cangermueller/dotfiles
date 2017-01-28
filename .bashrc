@@ -32,7 +32,7 @@ export VFR="$VF/r.vim"
 
 # Python
 export IPY="$HOME/.ipython"
-export IPYP="$IPY/profile_default/startup/00_profile.py"
+export IPYP="$IPY/profile_default/startup/00_default.py"
 
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias ll='ls -Alh'
@@ -69,10 +69,9 @@ alias less='less -S'
 alias le='less -S'
 alias scp='scp -r'
 
-function dir {
-  depth=${1:-2}
-  tree -L $depth -shC
-}
+alias dir="tree -L 3 -shC"
+alias dir2="tree -L 2 -shC"
+alias dir9="tree -L 100 -shC"
 
 function grepr {
  pattern=$1
@@ -142,7 +141,9 @@ alias gitc='git commit -m'
 alias gitca='git add -A :/ && git commit -a -m'
 alias gitcm='git commit -a -m "Minor changes"'
 alias gita='git add'
-alias gitm='git mv'
+alias gitmv='git mv'
+alias gitm='git merge'
+alias gitms='git merge sync/master'
 alias gitA='git add -A :/'
 alias gitd='git diff'
 alias gitp='git pull'
@@ -154,7 +155,6 @@ alias gitco='git checkout'
 alias gitcl='git clone'
 alias gitl='git log'
 alias gitbc='git rev-parse --abbrev-ref HEAD'
-alias gitms='git merge sync/master'
 # checkout current branch to directory
 function gitcod {
   path=$1

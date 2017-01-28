@@ -1,3 +1,6 @@
+import os
+import os.path as pt
+import re
 import numpy as np
 from numpy.random import rand
 from numpy.random import normal
