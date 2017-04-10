@@ -1,4 +1,4 @@
 configs
 =======
 
-Configuration file for my personal workspace
+Configuration files for my personal workspace.

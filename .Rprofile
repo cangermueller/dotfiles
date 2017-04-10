@@ -16,9 +16,9 @@ if(interactive()){
     # know how to change the colors according to your taste:
     setOutputColors256(verbose = FALSE)
   }
-  library(setwidth)
 }
 
+# Return size of object.
 memsize <- function(object=NULL, units='Mb') {
   if (!is.null(object)) {
     print(format(object.size(object), units=units))
@@ -34,6 +34,7 @@ memsize <- function(object=NULL, units='Mb') {
   }
 }
 
+# Create test `data.frame`.
 test_df <- function(nrow=5, ncol=3) {
   h <- matrix(round(runif(nrow * ncol, 0, 10)), nrow=nrow)
   h <- as.data.frame(h)
@@ -41,6 +42,7 @@ test_df <- function(nrow=5, ncol=3) {
   return (h)
 }
 
+# Similar to `library(x)`, but suppresses warning
 Library <- function(x) {
   suppressWarnings(
     suppressPackageStartupMessages(
