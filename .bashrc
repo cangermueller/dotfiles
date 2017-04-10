@@ -33,8 +33,6 @@ export CFG="$ETC/configs"
 export BRC="$ETC/configs/.bashrc"
 export BRc="$ETC/.bashrc.local"
 alias brc="source $HOME/.bashrc"
-export TRC="$HOME/.tmux.conf"
-export TRc="$HOME/.tmux.conf.local"
 
 
 # Alias
@@ -187,6 +185,8 @@ alias vid="vimdiff"
 
 # tmux
 export TRC="$HOME/.tmux.conf"
+export TRc="$HOME/.tmux.conf.local"
+alias tmux='tmux -u'
 alias tma='tmux attach'
 
 
