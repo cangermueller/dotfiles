@@ -189,6 +189,7 @@ alias vid="vimdiff"
 # tmux
 export TRC="$HOME/.tmux.conf"
 alias tma='tmux attach'
+alias tmux='tmux -u'
 
 
 # Python
