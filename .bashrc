@@ -21,7 +21,8 @@ esac
 # General
 export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
-export SRC="$HOME/.ssh/config"
+export SR="$HOME/.ssh"
+export SRC="$SR/config"
 export BIN="$HOME/bin"
 export PATH="$HOME/bin:$PATH"
 export TMP="$HOME/tmp"
