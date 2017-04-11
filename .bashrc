@@ -7,6 +7,7 @@ shopt -s extglob
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export LANG=en_US.utf8
 
 case "$TERM" in
     xterm-*color | xterm | screen)
