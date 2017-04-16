@@ -7,7 +7,7 @@ shopt -s extglob
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export LANG=en_US.utf8
+export LANG="en_US.UTF-8"
 
 case "$TERM" in
     xterm-*color | xterm | screen)
@@ -51,12 +51,14 @@ alias l.='ls ./'
 alias l..='ls ../'
 alias l...='ls ../../'
 alias l....='ls ../../../'
-alias rr='rm -r'
+alias rr='rm -rf'
 alias rf='rm -rf'
 alias cr='cp -r'
 alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
+alias mk='mkdir -p'
 alias du='du -h'
+alias dus='du -hs'
 alias df='df -h'
 alias tx='tar xf'
 alias tc='tar cf'
