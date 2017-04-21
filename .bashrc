@@ -102,7 +102,9 @@ function abspath {
       path="$PWD/$file"
     fi
   fi
-  echo $path | tr -d '\n' | pbcopy
+  if $(hash pbcopy &> /dev/null); then
+    echo $path | tr -d '\n' | pbcopy
+  fi
   echo $path
 }
 alias apath="abspath"
