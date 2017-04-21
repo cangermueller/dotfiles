@@ -8,6 +8,7 @@ export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 case "$TERM" in
     xterm-*color | xterm | screen)
@@ -110,7 +111,7 @@ function Save {
 }
 
 function Xargs {
-  cmd=$1
+  cmd=$@
   xargs -Ix $cmd x
 }
 
