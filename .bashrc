@@ -85,6 +85,28 @@ alias dir9="tree -L 100 -shC"
 
 # Functions
 
+function abspath {
+  # Return absolute path of possible non-existing file.
+  file=$1
+  if $(hash realpath &> /dev/null); then
+    cmd="realpath"
+  else
+    cmd="readlink -f"
+  fi
+  if [[ -e $file ]]; then
+    path=$($cmd $file)
+  else
+    if [[ ${file:0:1} == '/' ]]; then
+      path=$file
+    else
+      path="$PWD/$file"
+    fi
+  fi
+  echo $path | tr -d '\n' | pbcopy
+  echo $path
+}
+alias apath="abspath"
+
 function grepr {
  pattern=$@
  grep -rI $pattern .
