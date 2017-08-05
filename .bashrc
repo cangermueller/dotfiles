@@ -4,9 +4,9 @@ shopt -s extglob
 
 
 # Layout
-export TERM=xterm-256color
+export TERM="xterm-256color"
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+export LSCOLORS="ExFxCxDxBxegedabagacad"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
@@ -23,20 +23,29 @@ esac
 # General
 export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
-export SR="$HOME/.ssh"
-export SRC="$SR/config"
-export BIN="$HOME/bin"
 export PATH="$HOME/bin:$PATH"
-export TMP="$HOME/tmp"
+export bin="$HOME/bin"
+export tmp="$HOME/tmp"
+export opt="$HOME/opt"
+export stow="$HOME/opt/stow"
+export PATH="$opt/bin:$PATH"
+export ssh="$HOME/.ssh"
+export src="$SR/config"
 
 
 # Configs
-export ETC="$HOME/etc"
-export CFG="$ETC/configs"
-export BRC="$ETC/configs/.bashrc"
-export BRc="$ETC/.bashrc.local"
+export etc="$HOME/etc"
+export cfg="$etc/configs"
+export brc="$etc/configs/.bashrc"
+export brC="$etc/.bashrc.local"
 alias brc="source $HOME/.bashrc"
 
+# Cheat sheets
+export cs="$HOME/docs/cheat"
+export cb="$cs/bash"
+export cp="$cs/python"
+export cr="$cs/R"
+export cv="$cs/vi"
 
 # Alias
 alias ll='ls -Alh'
@@ -189,11 +198,14 @@ alias cdate='date +%y%m%d_%H%M%S'
 
 function tdir {
   name=${1:-$RANDOM}
-  path="$TMP/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
+  path="$tmp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
   mkdir -p $path
-  export tmp=$path
+  export tdir=$path
   echo $path
 }
+
+alias tdirc="rm -rf $tmp/1*_tmpdir_*"
+
 
 
 
@@ -282,7 +294,7 @@ alias gitc='git commit -m'
 alias gitca='git add -A :/ && git commit -a -m'
 alias gitcm='git commit -a -m "Minor changes"'
 alias gitcd='git commit -a -m "Update documentation"'
-alias gitcC='git commit -a -m "Update configs"'
+alias gitcc='git commit -a -m "Update configs"'
 alias gita='git add'
 alias gitv='git mv'
 alias gitm='git merge'
@@ -384,8 +396,6 @@ function GZ {
 
 
 # Testing
-alias tdirc="rm -rf $TMP/1*_tmpdir_*"
-
 export TES="$HOME/research/test"
 export TESP="$TES/test.py"
 export TESS="$TES/test.sh"
