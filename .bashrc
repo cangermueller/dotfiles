@@ -80,12 +80,12 @@ alias grep='grep --color'
 alias tac='tail -r'
 alias findf='find . -iname '
 alias sql='sqlite3 -list'
-alias less='less -S'
-alias le='less -S'
+alias le='less'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
+alias hist='history'
 
 alias dir0="tree -L 1 -shC"
 alias dir1="tree -L 2 -shC"
