@@ -74,8 +74,7 @@ alias dus='du -hs'
 alias df='df -h'
 alias tx='tar xf'
 alias tc='tar cf'
-alias jobs='jobs -l'
-alias Kill='kill -9'
+alias pKill="pkill -9 -n"
 alias grep='grep --color'
 alias tac='tail -r'
 alias findf='find . -iname '
@@ -87,10 +86,25 @@ alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
 alias hist='history'
 
+# Listing directory content
 alias dir0="tree -L 1 -shC"
 alias dir1="tree -L 2 -shC"
 alias dir="tree -L 3 -shC"
 alias dir9="tree -L 100 -shC"
+
+# Job management
+alias Jobs='jobs -l'
+alias Kill='kill -9'
+alias psa='ps a'
+alias pss='pgrep -a'
+
+function psx {
+  local pattern=${1:-""}
+  ps ax | grep "$pattern"
+}
+
+
+
 
 
 
@@ -171,9 +185,14 @@ function cdd {
   done
 }
 
-function cf {
-  files=${@:-*}
-  cmd="ls -d $files | wc -l"
+function countf {
+  local dir="${1:-.}"
+  local pattern="$2"
+  cmd="find $dir"
+  if [[ -n $pattern ]]; then
+    cmd="$cmd -name '$pattern'"
+  fi
+  cmd="$cmd | wc -l"
   eval $cmd
 }
 
@@ -263,7 +282,7 @@ alias ipha='for f in $(find . -not -path "./\.*" -name "*ipynb"); do iph $f; don
 
 ## PIP
 alias pipi='sudo pip install -U'
-alias pipu='sudo pip uninstall'
+alias pipr='sudo pip uninstall'
 alias pips='pip search'
 alias pipl='pip list'
 alias pipL='pip list -o | grep Latest'
@@ -369,7 +388,9 @@ function shinyRun {
 
 # Compression
 function zipd {
-  zip -r $(basename $1).zip $1
+  local path=$1
+  path=${path%/}
+  zip -r $(basename $path).zip $path
 }
 
 alias zipr="zip -r"
