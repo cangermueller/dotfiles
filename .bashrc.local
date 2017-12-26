@@ -1,0 +1,12 @@
+# General
+export stow="$HOME/opt/stow"
+export PATH="$HOME/opt/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # MacPorts
+
+export docs="$HOME/docs"
+export cs="$docs/cheat"
+export cp="$CS/python"
+export cv="$CS/vi"
+export cb="$CS/bash"
+
+export rs="$HOME/research"
