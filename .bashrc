@@ -74,23 +74,37 @@ alias dus='du -hs'
 alias df='df -h'
 alias tx='tar xf'
 alias tc='tar cf'
-alias jobs='jobs -l'
-alias Kill='kill -9'
+alias pKill="pkill -9 -n"
 alias grep='grep --color'
 alias tac='tail -r'
 alias findf='find . -iname '
 alias sql='sqlite3 -list'
-alias le='less'
+alias le='less -I'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
 alias hist='history'
 
+# Listing directory content
 alias dir0="tree -L 1 -shC"
 alias dir1="tree -L 2 -shC"
 alias dir="tree -L 3 -shC"
 alias dir9="tree -L 100 -shC"
+
+# Job management
+alias Jobs='jobs -l'
+alias Kill='kill -9'
+alias psa='ps a'
+alias pss='pgrep -a'
+
+function psx {
+  local pattern=${1:-""}
+  ps ax | grep "$pattern"
+}
+
+
+
 
 
 
@@ -121,8 +135,15 @@ function abspath {
 alias apath="abspath"
 
 function grepr {
- pattern=$@
- grep -rI $pattern .
+  local pattern="$1"
+  local suffixes="${2:-py}"
+
+  include=""
+  for suffix in $suffixes; do
+    include="$include --include '*.$suffix'"
+  done
+  cmd="grep $include -rI $pattern ."
+  eval $cmd
 }
 
 function save {
@@ -171,9 +192,19 @@ function cdd {
   done
 }
 
-function cf {
-  files=${@:-*}
-  cmd="ls -d $files | wc -l"
+
+function countf {
+  ls $@ | wc -l
+}
+
+function Countf {
+  local pattern="$1"
+  local dir="${2:-.}"
+  cmd="find $dir -maxdepth 1 -not -path '.'"
+  if [[ -n $pattern ]]; then
+    cmd="$cmd -name '$pattern'"
+  fi
+  cmd="$cmd | wc -l"
   eval $cmd
 }
 
@@ -207,9 +238,6 @@ function tdir {
 alias tdirc="rm -rf $tmp/1*_tmpdir_*"
 
 
-
-
-
 # vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
@@ -219,6 +247,8 @@ export VF="$VR/ftplugin"
 export VFP="$VF/python.vim"
 export VFR="$VF/r.vim"
 export VFT="$VF/tex.vim"
+export VLp="$VR/local_pre.vim"
+export VLP="$VR/local_post.vim"
 
 alias vcs="rm -f \.*swp"
 alias vim="vim --servername VIM -p"
@@ -263,7 +293,7 @@ alias ipha='for f in $(find . -not -path "./\.*" -name "*ipynb"); do iph $f; don
 
 ## PIP
 alias pipi='sudo pip install -U'
-alias pipu='sudo pip uninstall'
+alias pipr='sudo pip uninstall'
 alias pips='pip search'
 alias pipl='pip list'
 alias pipL='pip list -o | grep Latest'
@@ -369,7 +399,9 @@ function shinyRun {
 
 # Compression
 function zipd {
-  zip -r $(basename $1).zip $1
+  local path=$1
+  path=${path%/}
+  zip -r $(basename $path).zip $path
 }
 
 alias zipr="zip -r"
