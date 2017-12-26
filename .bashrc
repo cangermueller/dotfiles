@@ -79,7 +79,7 @@ alias grep='grep --color'
 alias tac='tail -r'
 alias findf='find . -iname '
 alias sql='sqlite3 -list'
-alias le='less'
+alias le='less -I'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
@@ -135,8 +135,15 @@ function abspath {
 alias apath="abspath"
 
 function grepr {
- pattern=$@
- grep -rI $pattern .
+  local pattern="$1"
+  local suffixes="${2:-py}"
+
+  include=""
+  for suffix in $suffixes; do
+    include="$include --include '*.$suffix'"
+  done
+  cmd="grep $include -rI $pattern ."
+  eval $cmd
 }
 
 function save {
@@ -185,10 +192,15 @@ function cdd {
   done
 }
 
+
 function countf {
-  local dir="${1:-.}"
-  local pattern="$2"
-  cmd="find $dir"
+  ls $@ | wc -l
+}
+
+function Countf {
+  local pattern="$1"
+  local dir="${2:-.}"
+  cmd="find $dir -maxdepth 1 -not -path '.'"
   if [[ -n $pattern ]]; then
     cmd="$cmd -name '$pattern'"
   fi
@@ -226,9 +238,6 @@ function tdir {
 alias tdirc="rm -rf $tmp/1*_tmpdir_*"
 
 
-
-
-
 # vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
@@ -238,6 +247,8 @@ export VF="$VR/ftplugin"
 export VFP="$VF/python.vim"
 export VFR="$VF/r.vim"
 export VFT="$VF/tex.vim"
+export VLp="$VR/local_pre.vim"
+export VLP="$VR/local_post.vim"
 
 alias vcs="rm -f \.*swp"
 alias vim="vim --servername VIM -p"
