@@ -257,11 +257,13 @@ alias vid="vimdiff"
 
 
 # tmux
-export TRC="$HOME/.tmux.conf"
-export TRc="$HOME/.tmux.conf.local"
-alias tmux='tmux -u'
-alias tma='tmux attach'
-alias tmux='tmux -u'
+export trc="$HOME/.tmux.conf"
+export trC="$HOME/.tmux.conf.local"
+export tm="$HOME/.tmux"
+export tmp="$tm/plugins"
+alias trc="tmux source $trc"
+alias tmux="tmux -u"
+alias tma="tmux attach"
 
 
 # Python
