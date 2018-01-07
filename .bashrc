@@ -237,6 +237,13 @@ function tdir {
 
 alias tdirc="rm -rf $tmp/1*_tmpdir_*"
 
+export how="--help"
+
+function how {
+  cmd=$1
+  eval "$cmd --help | less"
+}
+
 
 # vim
 export VR="$HOME/.vim"
