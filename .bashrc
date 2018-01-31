@@ -283,7 +283,7 @@ export tr="$HOME/.tmux"
 export trp="$tm/plugins"
 alias trc="tmux source $trc"
 alias tmux="tmux -u"
-alias tma="tmux attach"
+alias tma="tmux attach || tmux"
 
 
 # Python
