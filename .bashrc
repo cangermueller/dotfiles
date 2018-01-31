@@ -84,7 +84,6 @@ alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
-alias hist='history'
 
 # Listing directory content
 alias dir0="tree -L 1 -shC"
@@ -270,7 +269,7 @@ export tm="$HOME/.tmux"
 export tmp="$tm/plugins"
 alias trc="tmux source $trc"
 alias tmux="tmux -u"
-alias tma="tmux attach"
+alias tma="tmux attach || tmux"
 
 
 # Python
