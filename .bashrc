@@ -98,6 +98,7 @@ alias dir="tree -L 3 -shC"
 alias dir9="tree -L 100 -shC"
 
 # Job management
+alias htop='htop -u $USER -d 10'
 alias Jobs='jobs -l'
 alias Kill='kill -9'
 alias psa='ps a'
@@ -271,8 +272,8 @@ export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
 alias vcs="rm -f \.*swp"
-alias vim="vim --servername VIM -p"
-alias vi="vim --servername VIM -p"
+# alias vim="vim --servername VIM -p"
+# alias vi="vim --servername VIM -p"
 alias vid="vimdiff"
 
 
@@ -280,10 +281,30 @@ alias vid="vimdiff"
 export trc="$HOME/.tmux.conf"
 export trC="$HOME/.tmux.conf.local"
 export tr="$HOME/.tmux"
-export trp="$tm/plugins"
+export trp="$tr/plugins"
 alias trc="tmux source $trc"
 alias tmux="tmux -u"
-alias tma="tmux attach || tmux"
+alias tml="tmux ls"
+alias tmk="tmux kill-session -t"
+
+function tma {
+  local name=$1
+  if [[ -z $name ]]; then
+    cmd="tmux attach || tmux new"
+  else
+    cmd="tmux attach -t $name || tmux new -s $name"
+  fi
+  eval $cmd
+}
+
+function tmn {
+  local name=$1
+  cmd="tmux new"
+  if [[ -n $name ]]; then
+    cmd="$cmd -s $name"
+  fi
+  eval $cmd
+}
 
 
 # Python
