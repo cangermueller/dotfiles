@@ -10,14 +10,21 @@ export LSCOLORS="ExFxCxDxBxegedabagacad"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-case "$TERM" in
-    xterm-*color | xterm | screen)
-        PS1='${debian_chroot:+($debian_chroot)}\[\e[01;31m\]\h: \[\e[01;32m\]\w\[\e[00m\] $ '
-        ;;
-    *)
-        PS1='${debian_chroot:+($debian_chroot)}\h: \w $ '
-        ;;
-esac
+if [[ $TERM == xterm* || $TERM == "screen" ]]; then
+  export PS1='${debian_chroot:+($debian_chroot)}\[\e[01;31m\]\h: \[\e[01;32m\]\w\[\e[00m\] $ '
+else
+  export PS='${debian_chroot:+($debian_chroot)}\h: \w $ '
+fi
+
+
+# Command history
+shopt -s cmdhist
+shopt -s histappend
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000
+export HISTTIMEFORMAT="[%m-%d %T] "
+alias hist="history | less +G"
+alias ghist="history | grep"
 
 
 # General
@@ -29,8 +36,8 @@ export tmp="$HOME/tmp"
 export opt="$HOME/opt"
 export stow="$HOME/opt/stow"
 export PATH="$opt/bin:$PATH"
-export ssh="$HOME/.ssh"
-export src="$SR/config"
+export sr="$HOME/.ssh"
+export src="$sr/config"
 
 
 # Configs
@@ -74,17 +81,15 @@ alias dus='du -hs'
 alias df='df -h'
 alias tx='tar xf'
 alias tc='tar cf'
-alias pKill="pkill -9 -n"
 alias grep='grep --color'
 alias tac='tail -r'
-alias findf='find . -iname '
 alias sql='sqlite3 -list'
 alias le='less -I'
+alias les='less -IS'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
-alias hist='history'
 
 # Listing directory content
 alias dir0="tree -L 1 -shC"
@@ -93,10 +98,13 @@ alias dir="tree -L 3 -shC"
 alias dir9="tree -L 100 -shC"
 
 # Job management
+alias htop='htop -u $USER -d 10'
 alias Jobs='jobs -l'
 alias Kill='kill -9'
+alias pKill="pkill -9 -n"
 alias psa='ps a'
 alias pss='pgrep -a'
+alias psk='pkill -9'
 
 function psx {
   local pattern=${1:-""}
@@ -109,6 +117,13 @@ function psx {
 
 
 # Functions
+
+function findf {
+  local pattern="$@"
+  cmd="find . -iname '*$pattern*'"
+  echo $cmd
+  eval $cmd
+}
 
 function abspath {
   # Return absolute path of possible non-existing file.
@@ -258,19 +273,42 @@ export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
 alias vcs="rm -f \.*swp"
-alias vim="vim --servername VIM -p"
-alias vi="vim --servername VIM -p"
-alias vid="vimdiff"
+vim="$(which vim) --servername VIM"
+alias vim="$vim -p"
+alias vi="$vim -p"
+alias vih="$vim -o"
+alias viv="$vim -O"
+alias vid="$(which vimdiff)"
 
 
 # tmux
 export trc="$HOME/.tmux.conf"
 export trC="$HOME/.tmux.conf.local"
-export tm="$HOME/.tmux"
-export tmp="$tm/plugins"
+export tr="$HOME/.tmux"
+export trp="$tr/plugins"
 alias trc="tmux source $trc"
 alias tmux="tmux -u"
-alias tma="tmux attach"
+alias tml="tmux ls"
+alias tmk="tmux kill-session -t"
+
+function tma {
+  local name=$1
+  if [[ -z $name ]]; then
+    cmd="tmux attach || tmux new"
+  else
+    cmd="tmux attach -t $name || tmux new -s $name"
+  fi
+  eval $cmd
+}
+
+function tmn {
+  local name=$1
+  cmd="tmux new"
+  if [[ -n $name ]]; then
+    cmd="$cmd -s $name"
+  fi
+  eval $cmd
+}
 
 
 # Python
