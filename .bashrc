@@ -81,11 +81,11 @@ alias dus='du -hs'
 alias df='df -h'
 alias tx='tar xf'
 alias tc='tar cf'
-alias pKill="pkill -9 -n"
 alias grep='grep --color'
 alias tac='tail -r'
 alias sql='sqlite3 -list'
 alias le='less -I'
+alias les='less -IS'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
@@ -101,6 +101,7 @@ alias dir9="tree -L 100 -shC"
 alias htop='htop -u $USER -d 10'
 alias Jobs='jobs -l'
 alias Kill='kill -9'
+alias pKill="pkill -9 -n"
 alias psa='ps a'
 alias pss='pgrep -a'
 alias psk='pkill -9'
@@ -272,9 +273,12 @@ export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
 alias vcs="rm -f \.*swp"
-# alias vim="vim --servername VIM -p"
-# alias vi="vim --servername VIM -p"
-alias vid="vimdiff"
+vim="$(which vim) --servername VIM"
+alias vim="$vim -p"
+alias vi="$vim -p"
+alias vih="$vim -o"
+alias viv="$vim -O"
+alias vid="$(which vimdiff)"
 
 
 # tmux
