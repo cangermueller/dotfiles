@@ -48,7 +48,8 @@ export brC="$etc/.bashrc.local"
 alias brc="source $HOME/.bashrc"
 
 # Cheat sheets
-export cs="$HOME/docs/cheat"
+export docs="$HOME/docs"
+export cs="$docs/cheat"
 export cb="$cs/bash"
 export cp="$cs/python"
 export cr="$cs/R"
@@ -375,8 +376,8 @@ alias gitcr='git commit -a -m "Update README"'
 alias gitcc='git commit -a -m "Update configs"'
 alias gitcs='git commit -a -m "Update cheat sheets"'
 alias gita='git add'
-alias gitv='git mv'
-alias gitm='git merge'
+alias gitme='git merge'
+alias gitmv='git mv'
 alias gitms='git merge sync/master'
 alias gitA='git add -A :/'
 alias gitd='git diff'
