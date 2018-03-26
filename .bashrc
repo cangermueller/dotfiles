@@ -283,10 +283,10 @@ alias vid="$(which vimdiff)"
 
 # tmux
 export trc="$HOME/.tmux.conf"
-export trC="$HOME/.tmux.conf.local"
-export tr="$HOME/.tmux"
-export trp="$tr/plugins"
 alias trc="tmux source $trc"
+export trC="$HOME/.tmux.conf.local"
+export tm="$HOME/.tmux"
+export tmp="$tm/plugins"
 alias tmux="tmux -u"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
