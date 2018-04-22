@@ -243,21 +243,41 @@ function ddir {
 
 alias cdate='date +%y%m%d_%H%M%S'
 
+function how {
+  cmd=$1
+  eval "$cmd --help | less"
+}
+
+# temporary directories
+
+export tdirs="$tmp/tdirs"
+
 function tdir {
   name=${1:-$RANDOM}
   path="$tmp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
   mkdir -p $path
   export tdir=$path
   echo $path
+  echo $path >> $tdirs
 }
 
-alias tdirc="rm -rf $tmp/1*_tmpdir_*"
+function gtdir {
+  local idx=${1:-1}
 
-export how="--help"
+  if [[ -e $tdirs ]]; then
+    export tdir=$(tail -n $idx $tdirs | head -n 1)
+  fi
+}
+gtdir
 
-function how {
-  cmd=$1
-  eval "$cmd --help | less"
+alias tdirs="tail $tdirs"
+
+function rtdirs {
+  to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
+  if [[ -n $to_del ]]; then
+    echo $to_del
+    rm -rI $to_del
+  fi
 }
 
 
@@ -287,7 +307,6 @@ export trc="$HOME/.tmux.conf"
 alias trc="tmux source $trc"
 export trC="$HOME/.tmux.conf.local"
 export tm="$HOME/.tmux"
-export tmp="$tm/plugins"
 alias tmux="tmux -u"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
@@ -340,12 +359,11 @@ function iph {
 alias ipha='for f in $(find . -not -path "./\.*" -name "*ipynb"); do iph $f; done'
 
 ## PIP
-alias pipi='sudo pip install -U'
-alias pipr='sudo pip uninstall'
+alias pipi='pip install -U'
+alias pipr='pip uninstall'
 alias pips='pip search'
 alias pipl='pip list'
 alias pipL='pip list -o | grep Latest'
-alias pipdev="sudo python setup.py develop"
 
 function pipu {
   sudo=${1:-1}
@@ -362,6 +380,15 @@ function pipu {
     fi
   done
 }
+
+
+
+# Apt
+alias apti="sudo apt-get install"
+alias aptr="sudo apt-get remove"
+alias apts="apt-cache search"
+alias aptu="sudo apt-get update"
+alias aptU="sudo apt-get upgrade"
 
 
 
