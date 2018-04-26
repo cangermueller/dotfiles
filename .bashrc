@@ -261,16 +261,17 @@ function tdir {
   echo $path >> $tdirs
 }
 
-function gtdir {
+function rtdir {
   local idx=${1:-1}
 
   if [[ -e $tdirs ]]; then
     export tdir=$(tail -n $idx $tdirs | head -n 1)
   fi
 }
-gtdir
+rtdir
 
 alias tdirs="tail $tdirs"
+alias ctdir="cd $tdir"
 
 function rtdirs {
   to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
