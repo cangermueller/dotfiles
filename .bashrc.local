@@ -1,0 +1,3 @@
+# BASH-IT
+export birc="$cfg/bash_it.sh"
+source "$birc"
