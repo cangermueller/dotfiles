@@ -510,10 +510,8 @@ function GZ {
 
 
 # Testing
-export TES="$HOME/research/test"
-export TESP="$TES/test.py"
-export TESS="$TES/test.sh"
-export TESR="$TES/test.Rmd"
+export tests="$HOME/docs/tests"
+export tesp="$tests/test.py"
+export tess="$tests/test.sh"
 
-alias tesp="python $TESP"
-alias tess="$TESS"
+alias tesp="python $tesp"
