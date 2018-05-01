@@ -5,8 +5,6 @@ shopt -s extglob
 
 # Layout
 export TERM="xterm-256color"
-export CLICOLOR=1
-export LSCOLORS="ExFxCxDxBxegedabagacad"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
@@ -60,12 +58,6 @@ export cr="$cs/R"
 export cv="$cs/vi"
 
 # Alias
-alias ll='ls -Alh'
-alias lL='ls -Alhd'
-alias la='ls -A'
-alias lD='ls -d'
-alias lDl='ls -ld'
-alias lN='ln -s'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -95,6 +87,16 @@ alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
+
+# ls
+export CLICOLOR=1
+export LSCOLORS="ExFxCxDxBxegedabagacad" # Colors OSX
+alias ll='ls -Alh'
+alias lL='ls -Alhd'
+alias la='ls -A'
+alias lD='ls -d'
+alias lDl='ls -ld'
+alias lN='ln -s'
 
 # Listing directory content
 alias dir0="tree -L 1 -shC"
