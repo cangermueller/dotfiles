@@ -300,13 +300,11 @@ export VFT="$VF/tex.vim"
 export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
-alias vcs="rm -f \.*swp"
-vim="$(which vim) --servername VIM"
-alias vim="$vim -p"
-alias vi="$vim -p"
-alias vih="$vim -o"
-alias viv="$vim -O"
-alias vid="$(which vimdiff)"
+alias vim="vim -p"
+alias vi="vim -p"
+alias vih="vim -o"
+alias viv="vim -O"
+alias vid="vimdiff"
 
 
 # tmux
