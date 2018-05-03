@@ -42,8 +42,9 @@ export src="$sr/config"
 export etc="$HOME/etc"
 export cfg="$etc/configs"
 export brc="$etc/configs/.bashrc"
+alias brc="source $brc"
 export brC="$etc/.bashrc.local"
-alias brc="source $HOME/.bashrc"
+alias brC="source $brC"
 
 # Cheat sheets
 export docs="$HOME/docs"
