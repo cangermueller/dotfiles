@@ -23,22 +23,18 @@ alias gitcc='gitca "Update configs"'
 alias gitcd='gitca "Update documentation"'
 alias gitcs='gitca "Update cheat sheets"'
 
-cd $cfg
-gitcc
-# run "gitcc"
 
+run "cd $cfg"
+run "gitcc"
+run "gitp"
+run "gitP"
 
-# run "cd $cfg"
-# run "gitcc"
-# run "gitp"
-# run "gitP"
+run "cd $VR"
+run "gitcc"
+run "gitp"
+run "gitP"
 
-# run "cd $VR"
-# run "gitcc"
-# run "gitp"
-# run "gitP"
-
-# run "cd $cs"
-# run "gitcd"
-# run "gitp"
-# run "gitP"
+run "cd $cs"
+run "gitcd"
+run "gitp"
+run "gitP"
