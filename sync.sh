@@ -35,37 +35,21 @@ function ask {
 }
 
 
-alias gits='git status'
-alias gitca='git add -A :/ && git commit -a -m'
-alias gitcc='gitca "Update configs"'
-alias gitcd='gitca "Update documentation"'
-alias gitcs='gitca "Update cheat sheets"'
-alias gitp='git pull'
-alias gitP='git push'
+function update {
+  local path=$1
+  local msg=${2:-"Update configs"}
+
+  run "cd $path"
+  run "git status"
+  if [[ $(ask) -ne 1 ]]; then
+    exit 0
+  fi
+  run "git add -A :/ && git commit -a -m '$msg'"
+  run "git pull"
+  run "git push"
+}
 
 
-# Configs
-run "cd $cfg"
-run "gits"
-if [[ $(ask) -ne 1 ]]; then
-  exit 0
-fi
-run "gitcc"
-run "gitp"
-run "gitP"
-
-exit 0
-
-
-# VIM
-run "cd $VR"
-run "gitcc"
-run "gitp"
-run "gitP"
-
-
-# Cheat sheats
-run "cd $cs"
-run "gitcd"
-run "gitp"
-run "gitP"
+update $cfg
+update $VR
+update $cs "Update cheat sheats"
