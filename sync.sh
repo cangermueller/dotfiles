@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 set -e
+shopt -s expand_aliases
 
 check=1
 function run {
+
   local cmd=$@
   echo
   echo "#################################"
@@ -16,18 +18,27 @@ function run {
   fi
 }
 
+alias gitca='git add -A :/ && git commit -a -m'
+alias gitcc='gitca "Update configs"'
+alias gitcd='gitca "Update documentation"'
+alias gitcs='gitca "Update cheat sheets"'
 
-run "cd $cfg"
-run "gitcc"
-run "gitp"
-run "gitP"
+cd $cfg
+gitcc
+# run "gitcc"
 
-run "cd $VR"
-run "gitcc"
-run "gitp"
-run "gitP"
 
-run "cd $cs"
-run "gitcd"
-run "gitp"
-run "gitP"
+# run "cd $cfg"
+# run "gitcc"
+# run "gitp"
+# run "gitP"
+
+# run "cd $VR"
+# run "gitcc"
+# run "gitp"
+# run "gitP"
+
+# run "cd $cs"
+# run "gitcd"
+# run "gitp"
+# run "gitP"

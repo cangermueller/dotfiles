@@ -45,7 +45,7 @@ export brc="$etc/configs/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
 alias brC="source $brC"
-alias scfg="source $cfg/sync.sh"
+alias scfg="$cfg/sync.sh"
 
 # Cheat sheets
 export docs="$HOME/docs"
@@ -404,10 +404,10 @@ export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias gits='git status -u'
 alias gitc='git commit -m'
 alias gitca='git add -A :/ && git commit -a -m'
-alias gitcm='gitca "Minor changes"'
-alias gitcd='gitca "Update documentation"'
-alias gitcr='gitca "Update README"'
 alias gitcc='gitca "Update configs"'
+alias gitcd='gitca "Update documentation"'
+alias gitcm='gitca "Minor changes"'
+alias gitcr='gitca "Update README"'
 alias gitcs='gitca "Update cheat sheets"'
 alias gita='git add'
 alias gitme='git merge'
