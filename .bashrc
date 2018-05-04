@@ -45,6 +45,7 @@ export brc="$etc/configs/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
 alias brC="source $brC"
+alias scfg="$cfg/sync.sh"
 
 # Cheat sheets
 export docs="$HOME/docs"
@@ -301,13 +302,11 @@ export VFT="$VF/tex.vim"
 export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
-alias vcs="rm -f \.*swp"
-vim="$(which vim) --servername VIM"
-alias vim="$vim -p"
-alias vi="$vim -p"
-alias vih="$vim -o"
-alias viv="$vim -O"
-alias vid="$(which vimdiff)"
+alias vim="vim -p"
+alias vi="vim -p"
+alias vih="vim -o"
+alias viv="vim -O"
+alias vid="vimdiff"
 
 
 # tmux
@@ -405,11 +404,11 @@ export GIT_SSL_NO_VERIFY=true # avoid SSL problem
 alias gits='git status -u'
 alias gitc='git commit -m'
 alias gitca='git add -A :/ && git commit -a -m'
-alias gitcm='git commit -a -m "Minor changes"'
-alias gitcd='git commit -a -m "Update documentation"'
-alias gitcr='git commit -a -m "Update README"'
-alias gitcc='git commit -a -m "Update configs"'
-alias gitcs='git commit -a -m "Update cheat sheets"'
+alias gitcc='gitca "Update configs"'
+alias gitcd='gitca "Update documentation"'
+alias gitcm='gitca "Minor changes"'
+alias gitcr='gitca "Update README"'
+alias gitcs='gitca "Update cheat sheets"'
 alias gita='git add'
 alias gitme='git merge'
 alias gitmv='git mv'
