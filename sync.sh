@@ -22,6 +22,8 @@ alias gitca='git add -A :/ && git commit -a -m'
 alias gitcc='gitca "Update configs"'
 alias gitcd='gitca "Update documentation"'
 alias gitcs='gitca "Update cheat sheets"'
+alias gitp='git pull'
+alias gitP='git push'
 
 
 run "cd $cfg"
