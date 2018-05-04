@@ -1,22 +1,9 @@
 #!/usr/bin/env bash
 
-set -e
-shopt -s expand_aliases
 
-
-check=1
 function run {
-
   local cmd=$@
-  echo
-  echo "#################################"
-  echo $cmd
-  echo "#################################"
   eval $cmd
-  if [ $check -ne 0 -a $? -ne 0 ]; then
-    1>&2 echo "Command failed!"
-    exit 1
-  fi
 }
 
 
@@ -50,6 +37,21 @@ function update {
 }
 
 
+function header {
+  local msg=$1
+  echo "---------------"
+  echo $msg
+  echo "---------------"
+}
+
+
+
+
+header "configs"
 update $cfg
+
+header "vim"
 update $VR
+
+header "cheat"
 update $cs "Update cheat sheats"
