@@ -517,3 +517,10 @@ export tesp="$tests/test.py"
 export tess="$tests/test.sh"
 
 alias tesp="python $tesp"
+
+
+if [[ $HOSTNAME =~ (mac|^canger) ]]; then
+  export is_local_host=1
+else
+  export is_local_host=0
+fi
