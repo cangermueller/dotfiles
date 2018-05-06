@@ -45,7 +45,7 @@ export brc="$etc/configs/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
 alias brC="source $brC"
-alias scfg="$cfg/sync.sh"
+alias csync="$cfg/sync.sh"
 
 # Cheat sheets
 export docs="$HOME/docs"
