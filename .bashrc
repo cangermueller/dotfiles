@@ -269,19 +269,19 @@ function tdir {
   echo $path >> $tdirs
 }
 
-function rtdir {
+function utdir {
   local idx=${1:-1}
 
   if [[ -e $tdirs ]]; then
     export tdir=$(tail -n $idx $tdirs | head -n 1)
   fi
 }
-rtdir
+utdir
 
 alias tdirs="tail $tdirs"
 alias ctdir="cd $tdir"
 
-function rtdirs {
+function rmtdirs {
   to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
   if [[ -n $to_del ]]; then
     echo $to_del
