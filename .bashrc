@@ -269,19 +269,22 @@ function tdir {
   echo $path >> $tdirs
 }
 
-function utdir {
+function udir {
   local idx=${1:-1}
 
   if [[ -e $tdirs ]]; then
     export tdir=$(tail -n $idx $tdirs | head -n 1)
   fi
 }
-utdir
+udir
 
-alias tdirs="tail $tdirs"
-alias ctdir="cd $tdir"
+alias ldirs="tail $tdirs"
 
-function rmtdirs {
+function cdir {
+  eval 'cd $tdir'
+}
+
+function rdirs {
   to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
   if [[ -n $to_del ]]; then
     echo $to_del
@@ -293,6 +296,7 @@ function rmtdirs {
 # vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
+export VRB="$VR/bundle"
 export VS="$VR/spell"
 export VV="$VR/vundle.vim"
 export VF="$VR/ftplugin"
