@@ -15,14 +15,48 @@ else
 fi
 
 
-# Command history
+# History
 shopt -s cmdhist
 shopt -s histappend
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000
-export HISTTIMEFORMAT="[%m-%d %T] "
-alias hist="history | less +G"
-alias ghist="history | grep"
+export HISTTIMEFORMAT="[%y%m%d %H%M%S] "
+
+function hist {
+  if [[ -z $@ ]]; then
+    cmd="history | less +G"
+  else
+    cmd="history | grep $@"
+  fi
+  eval $cmd
+}
+
+## Persistent history
+export phist_file="$HOME/.persistent_history"
+function log_bash_persistent_history() {
+  [[
+    # $(history 1) =~ ^\ *[0-9]+\ +\[([^\]]+)\] [^\ ]+)\ +(.*)$
+    $(history 1) =~ ^\ *[0-9]+\ +\[([^\]]+)\]\ +(.*)$
+  ]]
+  local date_part="${BASH_REMATCH[1]}"
+  local command_part="${BASH_REMATCH[2]}"
+  if [ "$date_part" != "$PERSISTENT_HISTORY_LAST_MOMENT" ]; then
+    echo "[${date_part}]    ${command_part}    [$(pwd)]" >> $phist_file
+    export PERSISTENT_HISTORY_LAST="$command_part"
+    export PERSISTENT_HISTORY_LAST_MOMENT="$date_part"
+  fi
+}
+
+# export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
+
+function phist {
+  if [[ -z $@ ]]; then
+    cmd="less +G $phist_file"
+  else
+    cmd="cat $phist_file | grep $@"
+  fi
+  eval $cmd
+}
 
 
 # General
@@ -269,16 +303,16 @@ function tdir {
   echo $path >> $tdirs
 }
 
-function udir {
+function tdiru {
   local idx=${1:-1}
 
   if [[ -e $tdirs ]]; then
     export tdir=$(tail -n $idx $tdirs | head -n 1)
   fi
 }
-udir
+tdiru
 
-alias ldirs="tail $tdirs"
+alias tdirls="tail $tdirs"
 
 function cdir {
   eval 'cd $tdir'
