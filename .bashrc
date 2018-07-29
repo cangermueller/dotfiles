@@ -250,6 +250,13 @@ function cdd {
   done
 }
 
+function pin {
+  local pw=$1
+  shift
+  for i in $@; do
+    echo ${pw:$((i - 1)):1}
+  done
+}
 
 function countf {
   ls $@ | wc -l
