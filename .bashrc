@@ -556,6 +556,27 @@ function GZ {
 }
 
 
+# Misc
+function log {
+  (>&2 echo "$@")
+}
+
+function run {
+  local cmd="$@"
+  log
+  log "#################################"
+  log $cmd
+  log "#################################"
+  if [[ $debug -ne 1 ]]; then
+    eval $cmd
+    if [[ $check -ne 0 && $? -ne 0 ]]; then
+      log "Command failed!"
+      exit 1
+    fi
+  fi
+}
+
+
 # Testing
 export tests="$HOME/docs/tests"
 export tesp="$tests/test.py"
