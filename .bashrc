@@ -117,12 +117,14 @@ alias tc='tar cf'
 alias grep='grep --color'
 alias tac='tail -r'
 alias sql='sqlite3 -list'
-alias le='less -I'
-alias les='less -IS'
+alias le='less -IS'
 alias scp='scp -r'
 alias Make='make -B'
 alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
+alias h10='head -n 10'
+alias h20='head -n 20'
+alias h50='head -n 50'
 
 # ls
 export CLICOLOR=1
@@ -200,8 +202,16 @@ function grepr {
   for suffix in $suffixes; do
     include="$include --include '*.$suffix'"
   done
-  cmd="grep $include -rI $pattern ."
+  cmd="grep $include -rI '$pattern' ."
   eval $cmd
+}
+
+function grepp {
+  grepr "$1" "py"
+}
+
+function grepc {
+  grepr "$1" "hpp cpp h cc"
 }
 
 function save {
