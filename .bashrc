@@ -268,10 +268,12 @@ function pin {
   done
 }
 
+# Count files
 function countf {
   ls $@ | wc -l
 }
 
+# Count files recursively
 function Countf {
   local pattern="$1"
   local dir="${2:-.}"
@@ -281,6 +283,13 @@ function Countf {
   fi
   cmd="$cmd | wc -l"
   eval $cmd
+}
+
+# Count columns (csv) file
+function countc {
+  local file="$1"
+  local sep="${2:-,}"
+  head -n 1 $file | tr $sep '\n' | wc -l
 }
 
 function pdf2png {
@@ -320,22 +329,22 @@ function tdir {
   echo $path >> $tdirs
 }
 
-function tdiru {
+function utdir {
   local idx=${1:-1}
 
   if [[ -e $tdirs ]]; then
     export tdir=$(tail -n $idx $tdirs | head -n 1)
   fi
 }
-tdiru
+utdir
 
-alias tdirls="tail $tdirs"
+alias ltdir="tail $tdirs"
 
-function cdir {
+function ctdir {
   eval 'cd $tdir'
 }
 
-function rdirs {
+function rtdirs {
   to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
   if [[ -n $to_del ]]; then
     echo $to_del
@@ -352,8 +361,7 @@ export VS="$VR/spell"
 export VV="$VR/vundle.vim"
 export VF="$VR/ftplugin"
 export VFP="$VF/python.vim"
-export VFR="$VF/r.vim"
-export VFT="$VF/tex.vim"
+export VFC="$VF/cpp.vim"
 export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 
@@ -585,6 +593,7 @@ function run {
     fi
   fi
 }
+
 
 
 # Testing
