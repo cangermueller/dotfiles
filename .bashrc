@@ -75,6 +75,7 @@ export src="$sr/config"
 # Configs
 export etc="$HOME/etc"
 export cfg="$etc/configs"
+export PATH="$cfg/bin:$PATH"
 export brc="$etc/configs/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
@@ -600,8 +601,29 @@ function run {
 export tests="$HOME/docs/tests"
 export tesp="$tests/test.py"
 export tess="$tests/test.sh"
-
 alias tesp="python $tesp"
+
+
+# fzf / Fuzzy Finder
+alias fz="fzf"
+alias fpre="fzf_preview.sh"
+
+# fzf-extras
+# * zd: cd to parent directory
+# * fh: cmd history
+# * fkill: kill process
+# * fe: open with $EDITOR
+# * fpane, fs: tmux pane / sesseion
+extras="$stow/fzf-extras/fzf-extras.sh"
+if [[ -f $extras ]]; then
+  source $extras
+fi
+alias fcd="zd"
+alias fvi="fe"
+unset e fo v
+alias fpane="ftpane"
+export FZF_DEFAULT_OPTS="--multi --extended"
+
 
 
 if [[ $HOSTNAME =~ (mac|^canger) ]]; then
