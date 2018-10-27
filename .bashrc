@@ -131,11 +131,9 @@ alias h50='head -n 50'
 export CLICOLOR=1
 export LSCOLORS="ExFxCxDxBxegedabagacad" # Colors OSX
 alias ll='ls -Alh'
-alias lL='ls -Alhd'
+alias lld='ls -Alhd'
 alias la='ls -A'
-alias lD='ls -d'
-alias lDl='ls -ld'
-alias lN='ln -s'
+alias lns='ln -s'
 
 # Listing directory content
 alias dir0="tree -L 1 -shC"
