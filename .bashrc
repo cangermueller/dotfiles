@@ -75,7 +75,8 @@ export src="$sr/config"
 # Configs
 export etc="$HOME/etc"
 export cfg="$etc/configs"
-export PATH="$cfg/bin:$PATH"
+export cbin="$cfg/bin"
+export PATH="$cbin:$PATH"
 export brc="$etc/configs/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
@@ -432,24 +433,10 @@ alias pipi='pip install -U'
 alias pipr='pip uninstall'
 alias pips='pip search'
 alias pipl='pip list'
-alias pipL='pip list -o | grep Latest'
-
-function pipu {
-  sudo=${1:-1}
-  pip list -o | grep Latest | cut -f 1 -d ' ' | while read name; do
-    echo "Updating $name ..."
-    cmd="pip install -U $name"
-    if [ $sudo -eq 1 ]; then
-      cmd="sudo -H $cmd"
-    fi
-    eval $cmd
-    if [ $? -ne 0 ]; then
-      echo "$name failed!"
-      echo $name >> log.err
-    fi
-  done
-}
-
+alias pipo='pip list --outdated'
+alias mpip='mpip.py'
+alias mpip2='mpip.py -2'
+alias mpip3='mpip.py -3'
 
 
 # Apt
