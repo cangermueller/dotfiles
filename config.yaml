@@ -1,0 +1,21 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_by_default: true
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+
+dotfiles:
+  f_testrc:
+    src: .testrc
+    dst: ~/tmp/dot/.testrc
+    link: true
+
+profiles:
+  christofa-macbookpro4.roam.corp.google.com:
+    dotfiles:
+    - f_testrc

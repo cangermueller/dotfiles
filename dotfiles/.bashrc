@@ -74,10 +74,13 @@ export src="$sr/config"
 
 # Configs
 export etc="$HOME/etc"
-export cfg="$etc/configs"
+export dot="$etc/configs"
+export cdot="$dot/config.yaml"
+alias dot="$dot/dotdrop.sh"
+export cfg="$dot/dotfiles"
 export cbin="$cfg/bin"
 export PATH="$cbin:$PATH"
-export brc="$etc/configs/.bashrc"
+export brc="$cfg/.bashrc"
 alias brc="source $brc"
 export brC="$etc/.bashrc.local"
 alias brC="source $brC"
@@ -442,10 +445,17 @@ alias mpip3='mpip.py -3'
 # Apt
 alias apti="sudo apt-get install"
 alias aptr="sudo apt-get remove"
-alias apts="apt-cache search"
 alias aptu="sudo apt-get update"
 alias aptU="sudo apt-get upgrade"
+alias apts="apt-cache search"
 
+
+# MacPort
+alias porti="port install"
+alias portr="port uninstall"
+alias portu="port selfupdate"
+alias portU="port upgrade outdated"
+alias ports="port search"
 
 
 # Git

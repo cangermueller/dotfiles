@@ -18,8 +18,8 @@ function run {
 }
 
 run "cd $etc"
-run "git clone https://github.com/Bash-it/bash-it.git bash_it"
+# run "git clone https://github.com/Bash-it/bash-it.git bash_it"
 run "cd $etc/bash_it/custom"
-run "ln -s ../../configs/bash_it/custom/themes ."
+run "ln -s ../../configs/dotfiles/bash_it/custom/themes ."
 
-# source "$cfg/bash_it/bash_it.sh"
+source "$cfg/bash_it/bash_it.sh"
