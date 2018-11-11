@@ -47,8 +47,8 @@ function header {
 
 
 
-header "configs"
-update $cfg
+header "dotfiles"
+update $Dot
 
 header "vim"
 update $VR

@@ -3,7 +3,6 @@ import os.path as pt
 import re
 import numpy as np
 from numpy.random import rand
-from numpy.random import normal
 from string import ascii_lowercase as letters
 
 pr = 3

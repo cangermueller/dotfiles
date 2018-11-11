@@ -3,19 +3,83 @@ config:
   banner: true
   create: true
   dotpath: dotfiles
-  keepdot: false
+  keepdot: true
   link_by_default: true
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
-
 dotfiles:
-  f_testrc:
-    src: .testrc
-    dst: ~/tmp/dot/.testrc
+  f_bashrc:
+    dst: ~/.bashrc
+    link: false
+    src: .bashrc
+  f_bashrc_global:
+    dst: ~/.bashrc.global
     link: true
-
+    src: .bashrc.global
+  f_bashrc_local:
+    dst: ~/.bashrc.local
+    link: false
+    src: .bashrc.local
+  f_fzf_preview.sh:
+    dst: ~/bin/fzf_preview.sh
+    link: true
+    src: bin/fzf_preview.sh
+  f_gitconfig:
+    dst: ~/.gitconfig
+    link: true
+    src: .gitconfig
+  f_htoprc:
+    dst: ~/.config/htop/htoprc
+    link: true
+    src: .config/htop/htoprc
+  f_ipython_default:
+    dst: ~/.ipython/profile_default/startup/00_default.py
+    link: true
+    src: .ipython/00_default.py
+  f_keras_json:
+    dst: ~/.keras/keras.json
+    link: true
+    src: .keras/keras.json
+  f_mpip.py:
+    dst: ~/bin/mpip.py
+    link: true
+    src: bin/mpip.py
+  f_rprofile:
+    dst: ~/.Rprofile
+    link: true
+    src: .Rprofile
+  f_screenrc:
+    dst: ~/.screenrc
+    link: true
+    src: .screenrc
+  f_sync_configs.sh:
+    dst: ~/bin/sync_configs.sh
+    link: true
+    src: bin/sync_configs.sh
+  f_tmux_conf:
+    dst: ~/.tmux.conf
+    link: true
+    src: .tmux.conf
+  f_tmux_sessions_default_conf:
+    dst: ~/.tmux/sessions/default.conf
+    link: true
+    src: .tmux/sessions/default.conf
 profiles:
-  christofa-macbookpro4.roam.corp.google.com:
+  default:
     dotfiles:
-    - f_testrc
+    - f_bashrc
+    - f_bashrc_global
+    - f_bashrc_local
+    - f_fzf_preview.sh
+    - f_gitconfig
+    - f_htoprc
+    - f_ipython_default
+    - f_keras_json
+    - f_mpip.py
+    - f_rprofile
+    - f_sync_configs.sh
+    - f_rprofile
+    - f_screenrc
+    - f_tmux_conf
+    - f_tmux_sessions_default_conf

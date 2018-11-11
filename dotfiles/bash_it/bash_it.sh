@@ -1,9 +1,8 @@
 # Path to the bash it configuration
-export BASH_IT="$HOME/etc/bash_it"
+export BASH_IT="$bash_it/bash_it"
 
 # Lock and Load a custom theme file
-# location /.bash_it/themes/
-export BASH_IT_THEME='cangermueller'
+export BASH_IT_THEME="$cfg/bash_it/custom/themes/cangermueller/cangermueller.theme.bash"
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.

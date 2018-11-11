@@ -1,3 +1,2 @@
-# BASH-IT
-export birc="$cfg/bash_it.sh"
-source "$birc"
+# Local bash configs
+export LSCOLORS="ExFxCxDxBxegedabagacad"
