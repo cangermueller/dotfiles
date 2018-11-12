@@ -9,6 +9,10 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  d_tmux_plugins_tpm:
+    dst: ~/.tmux/plugins/tpm
+    link: true
+    src: .tmux/plugins/tpm
   f_bashrc:
     dst: ~/.bashrc
     link: false
@@ -66,8 +70,9 @@ dotfiles:
     link: true
     src: .tmux/sessions/default.conf
 profiles:
-  default:
+  base:
     dotfiles:
+    - d_tmux_plugins_tpm
     - f_bashrc
     - f_bashrc_global
     - f_bashrc_local

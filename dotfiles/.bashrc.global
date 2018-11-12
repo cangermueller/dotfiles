@@ -388,10 +388,8 @@ alias vid="vimdiff"
 
 
 # tmux
+export tmux="$HOME/.tmux"
 export trc="$HOME/.tmux.conf"
-alias trc="tmux source $trc"
-export trC="$HOME/.tmux.conf.local"
-export tm="$HOME/.tmux"
 alias tmux="tmux -u"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
@@ -613,9 +611,10 @@ alias tesp="python $tesp"
 
 
 
-# FZF / Fuzzy Finder
+# fzf
 alias fz="fzf"
 alias fpre="fzf_preview.sh"
+export FZF_DEFAULT_OPTS="--multi --extended"
 
 # fzf-extras
 # * zd: cd to parent directory
@@ -623,16 +622,14 @@ alias fpre="fzf_preview.sh"
 # * fkill: kill process
 # * fe: open with $EDITOR
 # * fpane, fs: tmux pane / sesseion
-extras="$stow/fzf-extras/fzf-extras.sh"
+extras="$dot/fzf-extras/fzf-extras.sh"
 if [[ -f $extras ]]; then
   source $extras
+  alias fcd="zd"
+  alias fvi="fe"
+  unset e fo v
+  alias fpane="ftpane"
 fi
-alias fcd="zd"
-alias fvi="fe"
-unset e fo v
-alias fpane="ftpane"
-export FZF_DEFAULT_OPTS="--multi --extended"
-
 
 
 # Bash-it

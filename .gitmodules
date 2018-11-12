@@ -4,3 +4,12 @@
 [submodule "dotfiles/bash_it/bash_it"]
 	path = dotfiles/bash_it/bash_it
 	url = https://github.com/Bash-it/bash-it
+[submodule "dotfiles/fzf"]
+	path = dotfiles/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "dotfiles/fzf-extras"]
+	path = dotfiles/fzf-extras
+	url = https://github.com/atweiden/fzf-extras.git
+[submodule "dotfiles/.tmux/plugins/tpm"]
+	path = dotfiles/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
