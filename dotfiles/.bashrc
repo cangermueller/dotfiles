@@ -1,2 +1,2 @@
-source "~/bashrc.global"
-source "~/bashrc.local"
+source "$HOME/.bashrc.global"
+source "$HOME/.bashrc.local"
