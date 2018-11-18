@@ -50,7 +50,7 @@ function log_bash_persistent_history() {
   fi
 }
 
-# export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
+export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
 
 function phist {
   if [[ -z $@ ]]; then
@@ -620,25 +620,27 @@ alias tesp="python $tesp"
 
 
 
-# fzf
-alias fz="fzf"
-alias fpre="fzf_preview.sh"
+# FZF
+# c-t // paste selected files into command line
+# fh: cmd history
+# fkill: kill process
+# fe: open with $EDITOR
+# fpane, fs: tmux pane / session
+# zd: cd to parent directory
 export FZF_DEFAULT_OPTS="--multi --extended"
-
-# fzf-extras
-# * zd: cd to parent directory
-# * fh: cmd history
-# * fkill: kill process
-# * fe: open with $EDITOR
-# * fpane, fs: tmux pane / sesseion
 extras="$dot/fzf-extras/fzf-extras.sh"
 if [[ -f $extras ]]; then
   source $extras
-  alias fcd="zd"
-  alias fvi="fe"
-  unset e fo v
-  alias fpane="ftpane"
 fi
+
+alias fz="fzf"
+alias fp="fzf_preview.sh"
+alias fd="zd"
+alias fl='le $(fz)'
+
+function fgrep {
+  cat $1 | fzf
+}
 
 
 # Bash-it
