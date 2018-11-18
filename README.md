@@ -2,7 +2,7 @@
 
 My dotfiles managed by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
-![iterm-screenshot](/images/iterm.png =384x216)
+![](./images/iterm.png =384x216)
 
 ## Installation
 ```bash
