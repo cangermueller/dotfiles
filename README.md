@@ -2,7 +2,7 @@
 
 My dotfiles managed by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
-<img src='/images/iterm.png' width=384 height=216></img>
+<img src='/images/iterm.png' width=768 height=432></img>
 
 ## Installation
 ```bash
