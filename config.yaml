@@ -1,3 +1,5 @@
+actions:
+  vundle: vim +PluginClean! +PluginInstall +PluginInstall! +qall
 config:
   backup: true
   banner: true
@@ -13,6 +15,12 @@ dotfiles:
     dst: ~/.tmux/plugins/tpm
     link: true
     src: .tmux/plugins/tpm
+  d_vim:
+    dst: ~/.vim
+    link: true
+    src: .vim
+    actions:
+      - vundle
   f_bashrc:
     dst: ~/.bashrc
     link: false
@@ -69,13 +77,18 @@ dotfiles:
     dst: ~/.tmux/sessions/default.conf
     link: true
     src: .tmux/sessions/default.conf
+  f_vimrc:
+    dst: ~/.vimrc
+    link: true
+    src: .vim/.vimrc
 profiles:
   base:
     dotfiles:
     - d_tmux_plugins_tpm
-    - f_bashrc
+    - d_vim
+    # - f_bashrc
     - f_bashrc_global
-    - f_bashrc_local
+    # - f_bashrc_local
     - f_fzf_preview.sh
     - f_gitconfig
     - f_htoprc
@@ -88,3 +101,4 @@ profiles:
     - f_screenrc
     - f_tmux_conf
     - f_tmux_sessions_default_conf
+    - f_vimrc

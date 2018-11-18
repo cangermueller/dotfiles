@@ -77,13 +77,14 @@ export etc="$HOME/etc"
 export Dot="$etc/dotfiles"
 export dot="$Dot/dotfiles"
 alias dot="$Dot/dotdrop.sh"
+alias doti="dot install -p base"
 export brc="$HOME/.bashrc.global"
 alias brc="source $brc"
 export brC="$HOME/.bashrc.local"
 alias brC="source $brC"
 alias csync="sync_configs.sh"
 
-function doti {
+function dotI {
   files=""
   for path in $@; do
     if [[ ${path:0:1} != "-" ]]; then
@@ -91,7 +92,7 @@ function doti {
     fi
     files="$files $path"
   done
-  cmd="dot import -p default $files"
+  cmd="dot import -p base $files"
   echo $cmd
   eval $cmd
 }
@@ -470,6 +471,7 @@ alias ports="port search"
 
 # Git
 export GIT_SSL_NO_VERIFY=true # avoid SSL problem
+alias gg="git"
 alias ggs='git status -u'
 alias ggc='git commit -m'
 alias ggca='git add -A :/ && git commit -a -m'
