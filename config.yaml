@@ -79,8 +79,8 @@ dotfiles:
     dst: ~/.vimrc
     link: true
     src: .vim/.vimrc
-    # actions:
-    #   - vundle
+    actions:
+    - vundle
 profiles:
   base:
     dotfiles:
