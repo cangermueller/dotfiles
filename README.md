@@ -18,14 +18,21 @@ cd dotfiles/fzf
 ./install
 ```
 
-# Vim modules
+### Vim modules
 ```bash
 vundle: vim +PluginClean! +PluginInstall +PluginInstall! +qall
 ```
 
-# Tmux plugins:
-1. Install cmake, which is required by[tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load):
+### Tmux plugins:
+1. Install cmake, which is required by [tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load):
 ```bash
 sudo port install cmake
 ```
 2. Press `C-s I` in an open tmux session. Plugins will be installed.
+
+
+## OSX dotfiles
+
+### iterm
+1. Open preferences.
+2. Set 'Load preferences from custom folder or url to'  `dotfiles/iterm`.
