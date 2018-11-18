@@ -50,8 +50,5 @@ function header {
 header "dotfiles"
 update $Dot
 
-header "vim"
-update $VR
-
 header "cheat"
 update $cs "Update cheat sheats"
