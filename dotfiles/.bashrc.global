@@ -498,6 +498,7 @@ alias ggl='git log'
 alias ggbc='git rev-parse --abbrev-ref HEAD'
 alias ggt='git tag'
 alias ggT='git tag -l'
+alias ggsm='git submodule'
 
 # checkout current branch to directory
 function gitcod {

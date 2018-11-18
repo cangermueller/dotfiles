@@ -19,8 +19,6 @@ dotfiles:
     dst: ~/.vim
     link: true
     src: .vim
-    actions:
-      - vundle
   f_bashrc:
     dst: ~/.bashrc
     link: false
@@ -81,6 +79,8 @@ dotfiles:
     dst: ~/.vimrc
     link: true
     src: .vim/.vimrc
+    # actions:
+    #   - vundle
 profiles:
   base:
     dotfiles:
