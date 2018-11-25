@@ -1,11 +1,36 @@
 #!/usr/bin/env bash
 
 
-function run {
-  local cmd=$@
-  eval $cmd
+function is_debug {
+  local args=$@
+  if [[ $args == "-t" ]]; then
+    echo 1
+  else
+    echo 0
+  fi
 }
 
+function log {
+  (>&2 echo "$@")
+}
+
+check=1
+debug=$(is_debug $1)
+
+function run {
+  local cmd="$@"
+  log
+  log "#################################"
+  log $cmd
+  log "#################################"
+  if [[ $debug -ne 1 ]]; then
+    eval $cmd
+    if [ $check -ne 0 -a $? -ne 0 ]; then
+      log "Command failed!"
+      exit 1
+    fi
+  fi
+}
 
 function ask {
   local msg=${1:-"Proceed? [y/n] "}
@@ -27,7 +52,7 @@ function update {
   local msg=${2:-"Update configs"}
 
   run "cd $path"
-  git status
+  run "git status"
   if [[ $(git status) != *'Changes not staged for commit'* ]]; then
     run "git pull"
     return
@@ -48,6 +73,8 @@ function header {
   echo "---------------"
 }
 
+header "vim"
+update "$dot/.vim"
 
 header "dotfiles"
 update $Dot
