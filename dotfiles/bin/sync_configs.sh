@@ -3,7 +3,7 @@
 
 function is_debug {
   local args=$@
-  if [[ $args == "t" ]]; then
+  if [[ $args == "-t" ]]; then
     echo 1
   else
     echo 0
@@ -16,6 +16,7 @@ function log {
 
 check=1
 debug=$(is_debug $1)
+
 function run {
   local cmd="$@"
   log
