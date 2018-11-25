@@ -27,7 +27,10 @@ function update {
   local msg=${2:-"Update configs"}
 
   run "cd $path"
-  run "git status"
+  git status
+  if [[ $(git status) == "*nothing to commit*" ]]; then
+    return
+  fi
   if [[ $(ask) -ne 1 ]]; then
     exit 0
   fi
@@ -43,8 +46,6 @@ function header {
   echo $msg
   echo "---------------"
 }
-
-
 
 
 header "dotfiles"
