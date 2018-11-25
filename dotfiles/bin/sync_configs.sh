@@ -28,7 +28,7 @@ function update {
 
   run "cd $path"
   git status
-  if [[ $(git status) == "*nothing to commit*" ]]; then
+  if [[ $(git status) != *'Changes not staged for commit'* ]]; then
     return
   fi
   if [[ $(ask) -ne 1 ]]; then
