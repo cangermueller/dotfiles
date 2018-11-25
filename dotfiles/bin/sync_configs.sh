@@ -29,7 +29,6 @@ function update {
   run "cd $path"
   git status
   if [[ $(git status) != *'Changes not staged for commit'* ]]; then
-    echo "ignore"
     run "git pull"
     return
   fi
