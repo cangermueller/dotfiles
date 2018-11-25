@@ -3,7 +3,7 @@
 
 function is_debug {
   local args=$@
-  if [[ $args == "d" ]]; then
+  if [[ $args == "t" ]]; then
     echo 1
   else
     echo 0
