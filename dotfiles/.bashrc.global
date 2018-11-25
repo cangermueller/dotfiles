@@ -419,31 +419,14 @@ function tmn {
 
 
 # Python
-alias pyt='py.test -v -s'
-alias wo='workon -n'
-alias won='workon'
-alias deact='deactivate'
+alias cenv="conda env"
+alias cenvl="cenv list"
+alias cenva="source activate"
+
 
 ## IPython
-export ipy="$HOME/.ipython"
-export ipyp="$ipy/profile_default/startup/00_default.py"
-
 alias ipc='jupyter console'
 alias ipn='jupyter notebook --no-browser'
-alias ips='jupyter nbconvert --to slides --post serve'
-
-function iph {
-  in=$1
-  out=${in%.ipynb}.html
-  run=$2
-  cmd="jupyter nbconvert --to html --output $out"
-  if [ -n "$run" ]; then
-    cmd="$cmd --ExecutePreprocessor.enabled=True"
-  fi
-  $cmd $in
-}
-
-alias ipha='for f in $(find . -not -path "./\.*" -name "*ipynb"); do iph $f; done'
 
 ## PIP
 alias pipi='pip install -U'
