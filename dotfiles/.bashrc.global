@@ -419,8 +419,12 @@ function tmn {
 
 
 # Python
+alias pyt="py.test -s -p no:warnings"
+
+## Conda
 alias cenv="conda env"
 alias cenvl="cenv list"
+alias ccur="cenv list"
 alias cenva="source activate"
 
 
