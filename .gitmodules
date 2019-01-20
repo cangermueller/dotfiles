@@ -13,3 +13,6 @@
 [submodule "dotfiles/.tmux/plugins/tpm"]
 	path = dotfiles/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "dotfiles/.vim"]
+	path = dotfiles/.vim
+	url = https://github.com/cangermueller/vim
