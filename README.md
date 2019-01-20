@@ -5,11 +5,22 @@ My dotfiles managed by [dotdrop](https://github.com/deadc0de6/dotdrop).
 <img src='/images/iterm.png' width=768 height=432></img>
 
 ## Installation
+
+The following tools must be install first:
+* Python3 ([Anaconda](https://www.anaconda.com/download/#macos))
+* [docopt](https://github.com/docopt/docopt) (`pip install docopt`)
+
+### Dotfiles
+1. Clone the repository and install the profile `base`:
 ```bash
 git clone https://github.com/cangermueller/dotfiles.git`
 cd dotfiles
 bash ./dotdrop.sh install -p base
 ```
+
+2. Add `source ~/.bash_profile` to `~/.profile`.
+3. Add `source ~/.dotrc` to `~/.bash_profile`.
+
 
 ### Fuzzy finder
 See [fzf](https://github.com/junegunn/fzf) for mode details.

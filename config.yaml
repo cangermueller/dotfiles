@@ -19,10 +19,10 @@ dotfiles:
     dst: ~/.vim
     link: true
     src: .vim
-  f_bashrc:
-    dst: ~/.bashrc
-    link: false
-    src: .bashrc
+  f_dotrc:
+    dst: ~/.dotrc
+    link: true
+    src: .dotrc
   f_bashrc_global:
     dst: ~/.bashrc.global
     link: true
@@ -86,9 +86,9 @@ profiles:
     dotfiles:
     - d_tmux_plugins_tpm
     - d_vim
-    # - f_bashrc
+    - f_dotrc
     - f_bashrc_global
-    # - f_bashrc_local
+    - f_bashrc_local
     - f_fzf_preview.sh
     - f_gitconfig
     - f_htoprc
