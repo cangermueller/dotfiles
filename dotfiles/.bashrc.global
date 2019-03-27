@@ -607,7 +607,7 @@ alias tesp="python $tesp"
 
 
 
-# FZF
+# FZF / Fuzzy Finder
 # c-t // paste selected files into command line
 # fh: cmd history
 # fkill: kill process
@@ -628,6 +628,7 @@ alias fl='le $(fz)'
 function fgrep {
   cat $1 | fzf
 }
+unalias fgrep
 
 
 # Bash-it

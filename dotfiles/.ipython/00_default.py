@@ -1,9 +1,11 @@
 import os
 import os.path as pt
 import re
-import numpy as np
-from numpy.random import rand
 from string import ascii_lowercase as letters
+
+import numpy as np
+import pandas as pd
+from numpy.random import rand
 
 pr = 3
 lw = 100
@@ -12,7 +14,6 @@ np.set_printoptions(linewidth=lw, precision=pr)
 #  pd.set_option('display.precision', pr + 1)
 
 def test_df(dim=(5, 3), dtype=int, min=0, max=5, columns=None):
-    import pandas as pd
     if columns is None:
         columns = list(letters[:dim[1]])
     if dtype == int:
@@ -24,6 +25,6 @@ def test_df(dim=(5, 3), dtype=int, min=0, max=5, columns=None):
 
 
 # Disable auto-close brackets
-from notebook.services.config import ConfigManager
-c = ConfigManager()
-c.update('notebook', {"CodeCell": {"cm_config": {"autoCloseBrackets": False}}})
+# from notebook.services.config import ConfigManager
+# c = ConfigManager()
+# c.update('notebook', {"CodeCell": {"cm_config": {"autoCloseBrackets": False}}})
