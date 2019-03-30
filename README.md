@@ -28,6 +28,7 @@ See [fzf](https://github.com/junegunn/fzf) for mode details.
 cd dotfiles/fzf
 ./install
 ```
+Do not update shell configuration files!
 
 ### Vim modules
 ```bash
