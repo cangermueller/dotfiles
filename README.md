@@ -13,7 +13,7 @@ The following tools must be install first:
 ### Dotfiles
 1. Clone the repository and install the profile `base`:
 ```bash
-git clone https://github.com/cangermueller/dotfiles.git`
+git clone https://github.com/cangermueller/dotfiles.git
 cd dotfiles
 bash ./dotdrop.sh install -p base
 ```
@@ -28,6 +28,7 @@ See [fzf](https://github.com/junegunn/fzf) for mode details.
 cd dotfiles/fzf
 ./install
 ```
+Do not update shell configuration files!
 
 ### Vim modules
 ```bash

@@ -627,7 +627,7 @@ alias fl='le $(fz)'
 
 
 # Bash-it
-if [[ $HOSTNAME =~ (mac|^canger) ]]; then
+if [[ $HOSTNAME =~ (mac) ]]; then
   export is_local_host=1
 else
   export is_local_host=0
