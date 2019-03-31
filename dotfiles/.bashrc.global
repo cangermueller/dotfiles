@@ -50,7 +50,7 @@ function log_bash_persistent_history() {
   fi
 }
 
-export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
+# export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
 
 function phist {
   if [[ -z $@ ]]; then
@@ -632,7 +632,7 @@ unalias fgrep
 
 
 # Bash-it
-if [[ $HOSTNAME =~ (mac|^canger) ]]; then
+if [[ $HOSTNAME =~ (mac) ]]; then
   export is_local_host=1
 else
   export is_local_host=0
