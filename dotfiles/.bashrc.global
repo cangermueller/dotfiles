@@ -50,7 +50,7 @@ function log_bash_persistent_history() {
   fi
 }
 
-export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
+# export PROMPT_COMMAND="__bp_precmd_invoke_cmd; __bp_interactive_mode; log_bash_persistent_history"
 
 function phist {
   if [[ -z $@ ]]; then
@@ -624,11 +624,6 @@ alias fz="fzf"
 alias fp="fzf_preview.sh"
 alias fd="zd"
 alias fl='le $(fz)'
-
-function fgrep {
-  cat $1 | fzf
-}
-unalias fgrep
 
 
 # Bash-it
