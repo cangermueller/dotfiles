@@ -163,14 +163,14 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>865 459 445 77 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1610 1326 620 392 0 0 3840 2160 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 3840 2137 </string>
+	<string>410 381 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>784 1114 918 423 0 0 3200 1800 </string>
+	<string>785 920 796 486 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 3200 1800 0 0 3200 1800 </string>
+	<string>0 0 2560 1440 0 0 2560 1440 </string>
 	<key>NeverWarnAboutShortLivedSessions_959A880B-1EFF-48A3-903F-969FEA1BF8B2</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_959A880B-1EFF-48A3-903F-969FEA1BF8B2_selection</key>
@@ -704,7 +704,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 14</string>
+			<string>Monaco 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -777,8 +777,14 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>308060CB-92DD-417F-ACBD-525651160699</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>1</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>562904913.74520004</real>
 	<key>PointerActions</key>
@@ -827,7 +833,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-09T15:37:52Z</date>
+	<date>2019-04-08T20:22:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -839,6 +845,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 </dict>
 </plist>
