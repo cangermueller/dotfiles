@@ -211,7 +211,7 @@ function abspath {
   fi
   echo $path
 }
-alias apath="abspath"
+alias abs="abspath"
 
 function grepr {
   local pattern="$1"
@@ -554,9 +554,9 @@ function zipd {
 
 alias zipr="zip -r"
 alias gz="gzip"
-alias gZ="gunzip"
+alias guz="gunzip"
 
-function Gz {
+function ggz {
   infile=$1
   outfile=$2
   if [[ -z $outfile ]]; then
@@ -565,7 +565,7 @@ function Gz {
   gzip -c $infile > $outfile
 }
 
-function GZ {
+function gguz {
   infile=$1
   outfile=$2
   if [[ -z $outfile ]]; then
