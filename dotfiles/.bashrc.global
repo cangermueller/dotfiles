@@ -219,7 +219,7 @@ function grepr {
 
   include=""
   for suffix in $suffixes; do
-    include="$include --include '*.$suffix'"
+    include="$include --include '*$suffix'"
   done
   cmd="grep $include -rI '$pattern' ."
   eval $cmd
@@ -421,6 +421,13 @@ function tmn {
 # Python
 alias pyt="py.test -s -p no:warnings"
 
+function tfb {
+  logdir="${1:-.}"
+  cmd="tensorboard --logdir=$logdir"
+  echo $cmd
+  eval $cmd
+}
+
 ## Conda
 alias cenv="conda env"
 alias cenvl="cenv list"
@@ -429,6 +436,8 @@ alias cenva="source activate"
 
 
 ## IPython
+export ipy="$HOME/.ipython"
+export ipyp="$ipy/profile_default/startup/00_default.py"
 alias ipc='jupyter console'
 alias ipn='jupyter notebook --no-browser'
 
