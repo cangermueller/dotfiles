@@ -22,9 +22,3 @@ def test_df(dim=(5, 3), dtype=int, min=0, max=5, columns=None):
         d = rand(dim[0], dim[1])
     d = pd.DataFrame(d, columns=columns)
     return d
-
-
-# Disable auto-close brackets
-# from notebook.services.config import ConfigManager
-# c = ConfigManager()
-# c.update('notebook', {"CodeCell": {"cm_config": {"autoCloseBrackets": False}}})
