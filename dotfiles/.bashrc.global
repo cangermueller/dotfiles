@@ -221,7 +221,7 @@ function grepr {
   for suffix in $suffixes; do
     include="$include --include '*$suffix'"
   done
-  cmd="grep $include -rI '$pattern' ."
+  cmd="grep --ignore-case $include -R '$pattern' ."
   eval $cmd
 }
 
@@ -375,7 +375,7 @@ function rtdirs {
 # vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
-export VRB="$VR/bundle"
+export VB="$VR/bundle"
 export VS="$VR/spell"
 export VV="$VR/vundle.vim"
 export VF="$VR/ftplugin"
