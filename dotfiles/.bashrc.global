@@ -182,13 +182,6 @@ function psx {
 
 # Functions
 
-function findf {
-  local pattern="$@"
-  cmd="find . -iname '*$pattern*'"
-  echo $cmd
-  eval $cmd
-}
-
 function abspath {
   # Return absolute path of possible non-existing file.
   file=$1
@@ -269,7 +262,7 @@ function cdd {
   cmd="find . -maxdepth 1 -not -path '*/\.*' -name"
   files=$($cmd "1*$1" | sort -r)
   if [ -z "$files" ]; then
-    files=$($cmd "*$1" | sort -r)
+    files=$($cmd "*$1*" | sort -r)
   fi
   for file in $files; do
     if [[ -d $file ]]; then
@@ -514,6 +507,11 @@ function gitcod {
 alias hls='h5ls'
 alias hLs='h5ls -r'
 alias hd='h5dump -d'
+
+
+# ripgrap
+alias rgp="rg --python"
+alias rgf="rg --files --glob"
 
 
 
