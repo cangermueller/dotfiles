@@ -510,7 +510,7 @@ alias hd='h5dump -d'
 
 
 # ripgrap
-alias rgp="rg --python"
+alias rgp="rg -t py"
 alias rgf="rg --files --glob"
 
 
