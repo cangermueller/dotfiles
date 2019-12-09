@@ -35,6 +35,10 @@ dotfiles:
     dst: ~/bin/fzf_preview.sh
     link: true
     src: bin/fzf_preview.sh
+  f_replace.py:
+    dst: ~/bin/replace.py
+    link: true
+    src: bin/replace.py
   f_gitconfig:
     dst: ~/.gitconfig
     link: true
