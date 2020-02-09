@@ -432,8 +432,8 @@ alias cenva="source activate"
 ## IPython
 export ipy="$HOME/.ipython"
 export ipyp="$ipy/profile_default/startup/00_default.py"
-alias ipc='jupyter console'
-alias ipn='jupyter notebook --no-browser'
+alias ipc='ipython'
+alias ipn='ipython notebook --no-browser'
 
 ## PIP
 alias pipi='pip install -U'
