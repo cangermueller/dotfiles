@@ -1,43 +1,10 @@
-# Settings
-stty -ixon  # disable <c-s> flow control
-shopt -s extglob
-
-# Using aliases with sudo
-alias sudo='sudo '
-
-
 # Layout
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-if [[ $TERM == xterm* || $TERM == "screen" ]]; then
-  export PS1='${debian_chroot:+($debian_chroot)}\[\e[01;31m\]\h: \[\e[01;32m\]\w\[\e[00m\] $ '
-else
-  export PS='${debian_chroot:+($debian_chroot)}\h: \w $ '
-fi
-
-
-# History
-shopt -s cmdhist
-shopt -s histappend
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000
-export HISTTIMEFORMAT="[%y%m%d %H%M%S] "
-
-function hist {
-  if [[ -z $@ ]]; then
-    cmd="history | less +G"
-  else
-    cmd="history | grep $@"
-  fi
-  eval $cmd
-}
-
-
 # General
 export EDITOR="vim"
-export SVN_EDITOR=$EDITOR
 export bin="$HOME/bin"
 export PATH="$bin:$PATH"
 export tmp="$HOME/tmp"
@@ -53,11 +20,11 @@ export src="$sr/config"
 export etc="$HOME/etc"
 export cfg="$HOME/.config"
 
-export brc="$HOME/.bashrc.global"
-alias brc="source $brc"
-export brC="$HOME/.bashrc.local"
-alias brC="source $brC"
-export BRC="$HOME/.bashrc"
+export zrc="$HOME/.zshrc.global"
+alias zrc="source $zrc"
+export zrC="$HOME/.zshrc.local"
+alias zrC="source $zrC"
+export ZRC="$HOME/.zshrc"
 
 # Dotfiles
 export Dot="$etc/dotfiles"
@@ -67,20 +34,16 @@ alias doti="dot install -p base"
 
 function dotI {
   files=""
-  for path in $@; do
-    if [[ ${path:0:1} != "-" ]]; then
-      path=$(realpath $path)
+  for fpath in $@; do
+    if [[ ${fpath:0:1} != "-" ]]; then
+      fpath=$(realpath $fpath)
     fi
-    files="$files $path"
+    files="$files $fpath"
   done
   cmd="dot import -p base $files"
   echo $cmd
   eval $cmd
 }
-
-# fish
-export fr="$cfg/fish"
-export frc="$fr/config.fish"
 
 # Cheat sheets
 export docs="$HOME/docs"
@@ -93,6 +56,12 @@ export cps="$cp/seaborn.txt"
 export cpt="$cp/tensorflow.txt"
 export cr="$cs/R"
 export cv="$cs/vi"
+
+# Testing
+export tests="$HOME/docs/tests"
+export tesp="$tests/test.py"
+export tess="$tests/test.sh"
+alias tesp="python $tesp"
 
 # Alias
 alias ..='cd ../'
@@ -117,11 +86,9 @@ alias tx='tar xf'
 alias tc='tar cf'
 alias grep='grep --color'
 alias tac='tail -r'
-alias sql='sqlite3 -list'
 alias le='less -IS'
 alias scp='scp -r'
 alias Make='make -B'
-alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
 alias h10='head -n 10'
 alias h20='head -n 20'
@@ -157,10 +124,6 @@ function psx {
 }
 
 
-
-
-
-
 # Functions
 
 function abspath {
@@ -172,18 +135,18 @@ function abspath {
     cmd="readlink -f"
   fi
   if [[ -e $file ]]; then
-    path=$($cmd $file)
+    fpath=$($cmd $file)
   else
     if [[ ${file:0:1} == '/' ]]; then
-      path=$file
+      fpath=$file
     else
-      path="$PWD/$file"
+      fpath="$PWD/$file"
     fi
   fi
   if $(hash pbcopy &> /dev/null); then
-    echo $path | tr -d '\n' | pbcopy
+    echo $fpath | tr -d '\n' | pbcopy
   fi
-  echo $path
+  echo $fpath
 }
 alias abs="abspath"
 
@@ -205,38 +168,6 @@ function grepp {
 
 function grepc {
   grepr "$1" "hpp cpp h cc"
-}
-
-function save {
-  a=${1%/}
-  if [[ $a == *.save ]]; then
-    b=${a%.save}
-  else
-    b="$a.save"
-  fi
-  mv $a $b
-}
-
-function Save {
-  a=${1%/}
-  if [[ $a == *.save ]]; then
-    b=${a%.save}
-  else
-    b="$a.save"
-  fi
-  cp -r $a $b
-}
-
-function Xargs {
-  cmd=$@
-  xargs -Ix $cmd x
-}
-
-function geti {
-  i=$1
-  shift
-  values=($@)
-  echo ${values[$i]}
 }
 
 function cdd {
@@ -293,7 +224,6 @@ function pdf2png {
   done
 }
 
-
 function ddir {
   name=$(date '+%y%m%d')
   if [[ -n $1 ]]; then
@@ -304,10 +234,6 @@ function ddir {
 
 alias cdate='date +%y%m%d_%H%M%S'
 
-function how {
-  cmd=$1
-  eval "$cmd --help | less"
-}
 
 # temporary directories
 
@@ -315,11 +241,11 @@ export tdirs="$tmp/tdirs"
 
 function tdir {
   name=${1:-$RANDOM}
-  path="$tmp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
-  mkdir -p $path
-  export tdir=$path
-  echo $path
-  echo $path >> $tdirs
+  fpath="$tmp/$(date +%y%m%d_%H%M%S)_tmpdir_$name"
+  mkdir -p $fpath
+  export tdir=$fpath
+  echo $fpath
+  echo $fpath >> $tdirs
 }
 
 function utdir {
@@ -338,10 +264,10 @@ function ctdir {
 }
 
 function rtdirs {
-  to_del=$(ls -d $tmp/1*_tmpdir_* $tdirs 2> /dev/null)
+  to_del=$(ls -d $tmp/*_tmpdir* $tdirs 2> /dev/null)
   if [[ -n $to_del ]]; then
     echo $to_del
-    rm -rI $to_del
+    rm -rfI $tmp/*_tmpdir* $tdirs
   fi
 }
 
@@ -350,7 +276,6 @@ function rtdirs {
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export VB="$VR/bundle"
-export VS="$VR/spell"
 export VV="$VR/vundle.vim"
 export VF="$VR/ftplugin"
 export VFP="$VF/python.vim"
@@ -394,20 +319,6 @@ function tmn {
 
 
 # Python
-alias pyt="py.test -s -p no:warnings"
-
-function tfb {
-  logdir="${1:-.}"
-  cmd="tensorboard --logdir=$logdir"
-  echo $cmd
-  eval $cmd
-}
-
-## Conda
-alias cenv="conda env"
-alias cenvl="cenv list"
-alias ccur="cenv list"
-alias cenva="source activate"
 
 
 ## IPython
@@ -422,9 +333,6 @@ alias pipr='pip uninstall'
 alias pips='pip search'
 alias pipl='pip list'
 alias pipo='pip list --outdated'
-alias mpip='mpip.py'
-alias mpip2='mpip.py -2'
-alias mpip3='mpip.py -3'
 
 
 # Apt
@@ -477,9 +385,9 @@ alias ggsm='git submodule'
 
 # checkout current branch to directory
 function gitcod {
-  path=$1
-  if [ -n "$path" ]; then
-    git checkout-index -a -f --prefix=$path/
+  fpath=$1
+  if [ -n "$fpath" ]; then
+    git checkout-index -a -f --prefix=$fpath/
   fi
 }
 
@@ -497,50 +405,11 @@ alias rgf="rg --files --glob"
 alias rgl="rg -F"
 
 
-
-# R
-function knit2pdf {
-  rnw=${1:-index.Rnw}
-  Rscript -e "library(knitr); knit2pdf('$rnw')"
-}
-
-function knit2html {
-  rnw=${1:-index.Rmd}
-  Rscript -e "library(knitr); knit2html('$rnw')"
-}
-
-function rmd2x {
-  file=${1:-main.Rmd}
-  out=${2:-html}  # html, pdf, word
-  Rscript -e "library(rmarkdown); render('$file', output_format='${out}_document')"
-}
-
-function rmdRun {
-  file=${1:-main.Rmd}
-  shift
-  args=$@
-  if [ ! -z "$args" ]; then
-    args=", $args"
-  fi
-  Rscript -e "library(methods); rmarkdown::run('$file'$args)"
-}
-
-function shinyRun {
-  file=${1:-main.Rmd}
-  shift
-  args=${@:-launch.browser = T}
-  if [ ! -z "$args" ]; then
-    args=", $args"
-  fi
-  Rscript -e "library(methods); shiny::runApp('$file'$args)"
-}
-
-
 # Compression
 function zipd {
-  local path=$1
-  path=${path%/}
-  zip -r $(basename $path).zip $path
+  local fpath=$1
+  fpath=${fpath%/}
+  zip -r $(basename $fpath).zip $fpath
 }
 
 alias zipr="zip -r"
@@ -566,38 +435,6 @@ function gguz {
 }
 
 
-# Misc
-alias wh='which'
-
-function log {
-  (>&2 echo "$@")
-}
-
-function run {
-  local cmd="$@"
-  log
-  log "#################################"
-  log $cmd
-  log "#################################"
-  if [[ $debug -ne 1 ]]; then
-    eval $cmd
-    if [[ $check -ne 0 && $? -ne 0 ]]; then
-      log "Command failed!"
-      exit 1
-    fi
-  fi
-}
-
-
-
-# Testing
-export tests="$HOME/docs/tests"
-export tesp="$tests/test.py"
-export tess="$tests/test.sh"
-alias tesp="python $tesp"
-
-
-
 # FZF / Fuzzy Finder
 # c-t // paste selected files into command line
 # fh: cmd history
@@ -614,16 +451,3 @@ fi
 alias fz="fzf"
 alias fp="fzf_preview.sh"
 alias fd="zd"
-
-
-# Bash-it
-if [[ $HOSTNAME =~ (mac) ]]; then
-  export is_local_host=1
-else
-  export is_local_host=0
-fi
-
-bash_it="$dot/bash_it"
-if [[ -f "$bash_it/bash_it.sh" ]]; then
-  source "$bash_it/bash_it.sh"
-fi
