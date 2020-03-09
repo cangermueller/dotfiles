@@ -59,9 +59,9 @@ export cv="$cs/vi"
 
 # Testing
 export tests="$HOME/docs/tests"
-export tesp="$tests/test.py"
-export tess="$tests/test.sh"
-alias tesp="python $tesp"
+export testp="$tests/test.py"
+export tests="$tests/test.sh"
+alias testp="python $testp"
 
 # Alias
 alias ..='cd ../'
