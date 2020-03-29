@@ -60,7 +60,7 @@ export cv="$cs/vi"
 # Testing
 export tests="$HOME/docs/tests"
 export testp="$tests/test.py"
-export tests="$tests/test.sh"
+export testb="$tests/test.sh"
 alias testp="python $testp"
 
 # Alias
@@ -171,17 +171,7 @@ function grepc {
 }
 
 function cdd {
-  cmd="find . -maxdepth 1 -not -path '*/\.*' -name"
-  files=$($cmd "1*$1" | sort -r)
-  if [ -z "$files" ]; then
-    files=$($cmd "*$1*" | sort -r)
-  fi
-  for file in $files; do
-    if [[ -d $file ]]; then
-      cd $file
-      break
-    fi
-  done
+  cd $(cdd.py $@)
 }
 
 function pin {
