@@ -1,5 +1,2 @@
-# _globals = globals()
-# _ = tf.logging.set_verbosity(tf.logging.ERROR) if 'tf' in _globals else None
-# _ = logging.set_verbosity(logging.ERROR) if 'logging' in _globals else None
-# _log = lambda: tf.logging.set_verbosity(tf.logging.INFO)
-# _nolog = lambda: tf.logging.set_verbosity(tf.logging.ERROR)
+alias logson from absl import logging; logging.set_verbosity(logging.INFO)
+alias logsoff from absl import logging; logging.set_verbosity(logging.FATAL)

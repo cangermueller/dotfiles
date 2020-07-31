@@ -27,24 +27,25 @@ class App(object):
     p = argparse.ArgumentParser(
       prog=name,
       formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-      description='Replaces pattern in all files recursively.')
+      description='Replaces or deletes patterns in all files recursively.')
     p.add_argument(
-      'pattern',
-      help='From pattern.')
-    p.add_argument(
-      'repl',
-      help='To pattern.')
-    p.add_argument(
-      '-g', '--file_glob',
-      default='*',
-      help='File glob.')
+      'patterns',
+      nargs='+',
+      help='from (to) pattern')
     p.add_argument(
       '-f', '--file_type',
       help='File type.')
     p.add_argument(
-      '-d', '--directory',
+      '-g', '--file_glob',
+      help='A glob, e.g. "*csv" for filtering files.')
+    p.add_argument(
+      '-p', '--path',
       default='.',
-      help='File glob.')
+      help='')
+    p.add_argument(
+      '-s', '--sep',
+      default='/',
+      help='Separator in sed expression')
     p.add_argument(
       '-t', '--test',
       action='store_true',
@@ -65,14 +66,20 @@ class App(object):
     if opts.verbose:
       logging.debug(opts)
 
-    file_glob = opts.file_glob
+    cmd = []
+    cmd.append(f'rg -l "{opts.patterns[0]}" {opts.path}')
     if opts.file_type:
-      file_glob = '%s.%s' % (file_glob, opts.file_type)
+      cmd.append(f'-t {opts.file_type}')
+    if opts.file_glob:
+      cmd.append(f'-g {opts.file_glob}')
 
-    cmd = [
-      f'find {opts.directory} -name "{file_glob}" -o -type f '
-      f' | xargs -Ix sed -i "s/{opts.pattern}/{opts.repl}/g" x'
-    ]
+    if len(opts.patterns) == 1:
+      sed = f'{opts.sep}{opts.patterns[0]}{opts.sep} d'
+    elif len(opts.patterns) == 2:
+      sed = f's{opts.sep}{opts.patterns[0]}{opts.sep}{opts.patterns[1]}/g'
+    else:
+      raise ValueError('One (delete) or two (replace) patterns required!')
+    cmd.append(f' | xargs -I@%@ sed -i "{sed}" @%@')
     cmd = ' '.join(cmd)
     _run_cmd(cmd, test=opts.test)
 

@@ -24,6 +24,10 @@ def test_df(dim=(5, 3), dtype=int, minval=0, maxval=5, columns=None):
     return d
 
 
+def test_series(size=5, minval=0, maxval=10):
+  return pd.Series(np.random.randint(minval, maxval, size))
+
+
 rand = np.random.rand
 
 def irand(shape=(4, 3), minval=0, maxval=10):
@@ -33,7 +37,11 @@ def irand(shape=(4, 3), minval=0, maxval=10):
 def tfi():
   import tensorflow as tf
   global tf
-  tf.enable_eager_execution()
+
+
+def logsoff():
+  from absl import logging
+  logging.set_verbosity(logging.FATAL)
 
 
 def tfrand(shape=(4, 3), **kwargs):

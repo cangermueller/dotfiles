@@ -93,6 +93,7 @@ alias wcl='wc -l'
 alias h10='head -n 10'
 alias h20='head -n 20'
 alias h50='head -n 50'
+alias replace='replace.py'
 
 # ls
 export CLICOLOR=1
