@@ -43,9 +43,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
+# Uncomment the following line to disable colors in ls.  # DISABLE_LS_COLORS="true"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -110,8 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-source ~/.zshrc.global
-source ~/.zshrc.local
+source ~/.config/zsh/global.sh
+source ~/.config/zsh/local.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -e
