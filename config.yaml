@@ -31,6 +31,14 @@ dotfiles:
     dst: ~/.bashrc.local
     link: false
     src: .bashrc.local
+  f_zshrc:
+    dst: ~/.zshrc
+    link: true
+    src: .zshrc
+  f_zshrc_global:
+    dst: ~/.zshrc.global
+    link: true
+    src: .zshrc.global
   f_fzf_preview.sh:
     dst: ~/bin/fzf_preview.sh
     link: true
@@ -55,10 +63,6 @@ dotfiles:
     dst: ~/.keras/keras.json
     link: true
     src: .keras/keras.json
-  f_mpip.py:
-    dst: ~/bin/mpip.py
-    link: true
-    src: bin/mpip.py
   f_rprofile:
     dst: ~/.Rprofile
     link: true
