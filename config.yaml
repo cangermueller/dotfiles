@@ -10,7 +10,32 @@ config:
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
+
 dotfiles:
+  d_bash_config.sh:
+    dst: ~/.config/bash/config.sh
+    link: true
+    src: .config/bash/config.sh
+  d_bash_global.sh:
+    dst: ~/.config/bash/global.sh
+    link: true
+    src: .config/bash/global.sh
+  d_bash_local.sh:
+    dst: ~/.config/bash/local.sh
+    link: false
+    src: .config/bash/local.sh
+  d_bash_shared.sh:
+    dst: ~/.config/bash/shared.sh
+    link: true
+    src: .config/bash/shared.sh
+  d_zsh_config.sh:
+    dst: ~/.config/zsh/config.sh
+    link: true
+    src: .config/zsh/config.sh
+  d_zsh_global.sh:
+    dst: ~/.config/zsh/global.sh
+    link: true
+    src: .config/zsh/global.sh
   d_tmux_plugins_tpm:
     dst: ~/.tmux/plugins/tpm
     link: true
@@ -19,26 +44,6 @@ dotfiles:
     dst: ~/.vim
     link: true
     src: .vim
-  f_dotrc:
-    dst: ~/.dotrc
-    link: true
-    src: .dotrc
-  f_bashrc_global:
-    dst: ~/.bashrc.global
-    link: true
-    src: .bashrc.global
-  f_bashrc_local:
-    dst: ~/.bashrc.local
-    link: false
-    src: .bashrc.local
-  f_zshrc:
-    dst: ~/.zshrc
-    link: true
-    src: .zshrc
-  f_zshrc_global:
-    dst: ~/.zshrc.global
-    link: true
-    src: .zshrc.global
   f_fzf_preview.sh:
     dst: ~/bin/fzf_preview.sh
     link: true
@@ -75,6 +80,14 @@ dotfiles:
     dst: ~/bin/sync_configs.sh
     link: true
     src: bin/sync_configs.sh
+  f_abspath.py:
+    dst: ~/bin/abspath.py
+    link: true
+    src: bin/abspath.py
+  f_rm_confirm.py:
+    dst: ~/bin/rm_confirm.py
+    link: true
+    src: bin/rm_confirm.py
   f_tmux_conf:
     dst: ~/.tmux.conf
     link: true
@@ -89,22 +102,27 @@ dotfiles:
     src: .vim/.vimrc
     actions:
     - vundle
+
 profiles:
   base:
     dotfiles:
+    - d_bash_config.sh
+    - d_bash_global.sh
+    - d_bash_local.sh
+    - d_bash_shared.sh
+    - d_zsh_config.sh
+    - d_zsh_global.sh
     - d_tmux_plugins_tpm
     - d_vim
-    - f_dotrc
-    - f_bashrc_global
-    - f_bashrc_local
     - f_fzf_preview.sh
     - f_gitconfig
     - f_htoprc
     - f_ipython_default
     - f_keras_json
-    - f_mpip.py
     - f_rprofile
     - f_sync_configs.sh
+    - f_abspath.py
+    - f_rm_confirm.py
     - f_rprofile
     - f_screenrc
     - f_tmux_conf
