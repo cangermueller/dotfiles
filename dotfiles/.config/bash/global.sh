@@ -30,11 +30,14 @@ else
   export is_local_host=0
 fi
 
+lscolors=$LSCOLORS
+ls_colors=$LS_COLORS
 bash_it="$HOME/etc/dotfiles/dotfiles/bash_it"
 if [[ -f "$bash_it/bash_it.sh" ]]; then
   source "$bash_it/bash_it.sh"
 fi
-
+export LSCOLORS=$lscolors  # overwrite bashit LSCOLORS
+export LS_COLORS=$ls_colors  # overwrite bashit LS_COLORS
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

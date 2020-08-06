@@ -1,6 +1,3 @@
-# Local bash configs
-export LSCOLORS="ExFxCxDxBxegedabagacad"
-
 # Remote access
 alias gs="glogin && gcert"
 alias gj="ssh g2"
@@ -26,4 +23,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export figs="~/docs/gdrive/work/teams/sequin/projects/181102_design/docs/200110_p3bo/figures"
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS='gxfxcxdxbxGxDxabagacad'
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
