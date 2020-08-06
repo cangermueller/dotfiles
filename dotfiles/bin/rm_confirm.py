@@ -5,8 +5,7 @@ import shutil
 
 
 def ask_confirmation(msg):
-  answer = input(msg + ' (y/n) ')
-  return answer in ['y', 'yes']
+  return input(msg + ' (y/n) ') in ['y', 'Y', 'yes', 'Yes']
 
 
 def main(argv):

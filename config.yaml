@@ -12,27 +12,27 @@ config:
   workdir: ~/.config/dotdrop
 
 dotfiles:
-  d_bash_config.sh:
+  f_shell_config.sh:
+    dst: ~/.config/shell/config.sh
+    link: true
+    src: .config/shell/config.sh
+  f_bash_config.sh:
     dst: ~/.config/bash/config.sh
     link: true
     src: .config/bash/config.sh
-  d_bash_global.sh:
+  f_bash_global.sh:
     dst: ~/.config/bash/global.sh
     link: true
     src: .config/bash/global.sh
-  d_bash_local.sh:
+  f_bash_local.sh:
     dst: ~/.config/bash/local.sh
     link: false
     src: .config/bash/local.sh
-  d_bash_shared.sh:
-    dst: ~/.config/bash/shared.sh
-    link: true
-    src: .config/bash/shared.sh
-  d_zsh_config.sh:
+  f_zsh_config.sh:
     dst: ~/.config/zsh/config.sh
     link: true
     src: .config/zsh/config.sh
-  d_zsh_global.sh:
+  f_zsh_global.sh:
     dst: ~/.config/zsh/global.sh
     link: true
     src: .config/zsh/global.sh
@@ -106,12 +106,12 @@ dotfiles:
 profiles:
   base:
     dotfiles:
-    - d_bash_config.sh
-    - d_bash_global.sh
-    - d_bash_local.sh
-    - d_bash_shared.sh
-    - d_zsh_config.sh
-    - d_zsh_global.sh
+    - f_shell_config.sh
+    - f_bash_config.sh
+    - f_bash_global.sh
+    - f_bash_local.sh
+    - f_zsh_config.sh
+    - f_zsh_global.sh
     - d_tmux_plugins_tpm
     - d_vim
     - f_fzf_preview.sh

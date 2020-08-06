@@ -1,7 +1,8 @@
 export cfg="$HOME/.config"
 
-export br="$cfg/bash"
+br="$cfg/bash"
+sr="$cfg/shell"
 
-source "$br/shared.sh"
+source "$sr/config.sh"
 source "$br/global.sh"
 source "$br/local.sh"

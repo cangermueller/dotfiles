@@ -1,9 +1,12 @@
 export cfg="$HOME/.config"
 export br="$cfg/bash"
-export zr="$cfg/zsh"
 
-source "$br/shared.sh"
+br="$cfg/bash"
+sr="$cfg/shell"
+zr="$cfg/zsh"
+
+source "$sr/config.sh"
 source "$zr/global.sh"
-source "$br/local.sh"
+source "$zr/local.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
