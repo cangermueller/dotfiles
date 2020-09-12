@@ -22,7 +22,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-export LSCOLORS='gxfxcxdxbxGxDxabagacad'
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
