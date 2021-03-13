@@ -38,16 +38,16 @@ export src="$sr/config.sh"
 ## Bash
 export br="$cfg/bash"
 export brc="$br/config.sh"
+alias brc="source $brc"
 export brg="$br/global.sh"
 export brl="$br/local.sh"
-export brs="$br/shared.sh"
-alias brc="source $brc"
 
 # ZSH
 export zr="$cfg/zsh"
 export zrc="$zr/config.sh"
 alias zrc="source $zrc"
 export zrg="$zr/global.sh"
+export zrl="$zr/local.sh"
 
 
 # Dotfiles
