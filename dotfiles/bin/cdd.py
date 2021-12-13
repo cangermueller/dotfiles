@@ -5,10 +5,12 @@ import os
 import sys
 
 
-def main(pattern):
+def get_path(pattern):
   if os.path.isdir(pattern):
-    print(pattern)
-    return 0
+    for path in sorted(glob.glob(os.path.join(pattern, '*')))[::-1]:
+      if os.path.isdir(path):
+        return path
+    return pattern
 
   dirname, basename = os.path.split(pattern)
 
@@ -22,11 +24,14 @@ def main(pattern):
   for base_pattern in base_patterns:
     target = _glob(base_pattern)
     if target:
-      print(target)
-      return 0
+      return target
 
-  print(os.path.abspath(dirname))
-  return 1
+  return dirname
+
+
+def main(pattern):
+  print(get_path(pattern))
+  return 0
 
 
 if __name__ == '__main__':
