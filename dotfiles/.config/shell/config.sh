@@ -25,7 +25,7 @@ export opt="$HOME/opt"
 export stow="$HOME/opt/stow"
 prepend_path "$opt/bin"
 export ssr="$HOME/.ssh"
-export ssc="$sr/config"
+export ssc="$ssr/config"
 export etc="$HOME/etc"
 
 # Configs
