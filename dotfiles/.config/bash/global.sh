@@ -16,6 +16,7 @@ else
   export PS='${debian_chroot:+($debian_chroot)}\h: \w $ '
 fi
 
+
 # History
 shopt -s cmdhist
 shopt -s histappend
