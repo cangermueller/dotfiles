@@ -221,7 +221,6 @@ function rtdir {
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export VB="$VR/bundle"
-export VS="$VR/spell"
 export VV="$VR/vundle.vim"
 export VF="$VR/ftplugin"
 export VFP="$VF/python.vim"
@@ -234,7 +233,7 @@ alias vim="vim -p"
 alias vi="vim -p"
 alias vih="vim -o"
 alias viv="vim -O"
-alias vid="vimdiff"
+alias vid="vim -O"
 
 # tmux
 export tmux="$HOME/.tmux"
@@ -362,13 +361,13 @@ function gguz {
 
 
 # Testing
-export tests="$HOME/docs/tests"
-export tesp="$tests/test.py"
-export tess="$tests/test.sh"
-alias tesp="python $tesp"
+tests="$HOME/docs/tests"
+export ptest="$tests/test.py"
+alias ptest="python $ptest"
 
 
 # FZF / Fuzzy Finder
+# c-r // command history
 # c-t // paste selected files into command line
 # fh: cmd history
 # fkill: kill process
