@@ -6,99 +6,99 @@ config:
   create: true
   dotpath: dotfiles
   keepdot: true
-  link_by_default: true
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
-
+  link_on_import: link
+  minversion: 1.10.0
 dotfiles:
   f_shell_config.sh:
     dst: ~/.config/shell/config.sh
-    link: true
+    link: absolute
     src: .config/shell/config.sh
   f_bash_config.sh:
     dst: ~/.config/bash/config.sh
-    link: true
+    link: absolute
     src: .config/bash/config.sh
   f_bash_global.sh:
     dst: ~/.config/bash/global.sh
-    link: true
+    link: absolute
     src: .config/bash/global.sh
   f_bash_local.sh:
     dst: ~/.config/bash/local.sh
-    link: false
+    link: nolink
     src: .config/bash/local.sh
   f_zsh_config.sh:
     dst: ~/.config/zsh/config.sh
-    link: true
+    link: absolute
     src: .config/zsh/config.sh
   f_zsh_global.sh:
     dst: ~/.config/zsh/global.sh
-    link: true
+    link: absolute
     src: .config/zsh/global.sh
   d_tmux_plugins_tpm:
     dst: ~/.tmux/plugins/tpm
-    link: true
+    link: absolute
     src: .tmux/plugins/tpm
   d_vim:
     dst: ~/.vim
-    link: true
+    link: absolute
     src: .vim
   f_fzf_preview.sh:
     dst: ~/bin/fzf_preview.sh
-    link: true
+    link: absolute
     src: bin/fzf_preview.sh
   f_replace.py:
     dst: ~/bin/replace.py
-    link: true
+    link: absolute
     src: bin/replace.py
   f_gitconfig:
     dst: ~/.gitconfig
-    link: true
+    link: absolute
     src: .gitconfig
   f_htoprc:
     dst: ~/.config/htop/htoprc
-    link: true
+    link: absolute
     src: .config/htop/htoprc
   f_ipython_default:
     dst: ~/.ipython/profile_default/startup/00_default.py
-    link: true
+    link: absolute
     src: .ipython/00_default.py
   f_keras_json:
     dst: ~/.keras/keras.json
-    link: true
+    link: absolute
     src: .keras/keras.json
   f_rprofile:
     dst: ~/.Rprofile
-    link: true
+    link: absolute
     src: .Rprofile
   f_screenrc:
     dst: ~/.screenrc
-    link: true
+    link: absolute
     src: .screenrc
   f_sync_configs.sh:
     dst: ~/bin/sync_configs.sh
-    link: true
+    link: absolute
     src: bin/sync_configs.sh
   f_abspath.py:
     dst: ~/bin/abspath.py
-    link: true
+    link: absolute
     src: bin/abspath.py
   f_rm_confirm.py:
     dst: ~/bin/rm_confirm.py
-    link: true
+    link: absolute
     src: bin/rm_confirm.py
   f_tmux_conf:
     dst: ~/.tmux.conf
-    link: true
+    link: absolute
     src: .tmux.conf
   f_tmux_sessions_default_conf:
     dst: ~/.tmux/sessions/default.conf
-    link: true
+    link: absolute
     src: .tmux/sessions/default.conf
   f_vimrc:
     dst: ~/.vimrc
-    link: true
+    link: absolute
     src: .vim/.vimrc
     actions:
     - vundle

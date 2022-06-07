@@ -1,12 +1,6 @@
-# Remote access
-alias gs="glogin && gcert"
-alias gj="ssh g2"
-
-# gmount
-gmount_src="/google/src/cloud/$USER"
-alias gmount="gmount.sh"
-alias gumount="gumount.sh"
-alias gmount_src="gmount $gmount_src"
+# MacPorts
+append_path "/opt/local/bin"
+append_path "/opt/local/sbin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
