@@ -285,7 +285,8 @@ alias aptU="sudo apt-get upgrade"
 alias apts="apt-cache search"
 
 # MacPort
-alias port='/opt/local/bin/port'
+alias port="/opt/local/bin/port"
+alias sport="sudo port"
 alias porti="port install"
 alias portr="port uninstall"
 alias portu="port selfupdate"
