@@ -1,3 +1,6 @@
+# Exit if the shell is not-interactive
+[ "$-" != "${-#*i}" ] || return
+
 export cfg="$HOME/.config"
 
 br="$cfg/bash"
