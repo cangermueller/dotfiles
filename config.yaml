@@ -102,6 +102,10 @@ dotfiles:
     src: .vim/.vimrc
     actions:
     - vundle
+  f_pymolrc:
+    dst: ~/.pymolrc
+    link: absolute
+    src: .pymolrc
 
 profiles:
   base:
@@ -128,3 +132,4 @@ profiles:
     - f_tmux_conf
     - f_tmux_sessions_default_conf
     - f_vimrc
+    - f_pymolrc
