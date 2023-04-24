@@ -185,6 +185,16 @@ function ddir {
 
 alias cdate='date +%y%m%d_%H%M%S'
 
+function savef {
+  for filename in $@; do
+    if [[ $filename != *.save ]]; then
+      cmd="cp $filename ${filename}.save"
+      echo $cmd
+      eval $cmd
+    fi
+  done
+}
+
 # temporary directories
 
 function tdir {
@@ -228,6 +238,9 @@ export VFPL="$VF/python_local.vim"
 export VFC="$VF/cpp.vim"
 export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
+export VLP="$VR/local_post.vim"
+export VCOC="$VR/coc.vim"
+export VCOS="$VR/coc-settings.json"
 
 alias vim="vim -p"
 alias vi="vim -p"
@@ -381,7 +394,4 @@ if [[ -f $extras ]]; then
   source $extras
 fi
 
-alias fz="fzf"
-alias fp="fzf_preview.sh"
-alias fd="zd"
-alias fl='le $(fz)'
+alias fpre="fzf_preview.sh"
