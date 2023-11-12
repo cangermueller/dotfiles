@@ -1,7 +1,9 @@
-set seq_view, 1
-set label_font_size, 16
+set seq_view, on
+set label_size, 16
 set label_font_id, 10
-
+set cartoon_side_chain_helper, on
+bg_color white
+window maximize
 
 set_color cb_blue, [51, 34, 136]
 set_color cb_tan, [221, 204, 119]
@@ -12,3 +14,6 @@ set_color cb_gold, [153, 153, 51]
 set_color cb_salmon, [204, 102, 119]
 set_color cb_red, [136, 34, 85]
 set_color cb_pink, [170, 68, 153]
+
+cd /Users/christofa/teams/sequin/projects/200701_spectre/covid/workdirs/220829_structure/pymol
+run utils.py
