@@ -78,7 +78,7 @@ export cp="$cs/python"
 export cpn="$cp/numpy.txt"
 export cpp="$cp/pandas.txt"
 export cps="$cp/seaborn.txt"
-export cpt="$cp/tensorflow.txt"
+export cpt="$cp/typing.txt"
 export cr="$cs/R"
 export cv="$cs/vi"
 
