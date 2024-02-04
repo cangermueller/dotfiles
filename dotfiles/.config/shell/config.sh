@@ -16,7 +16,7 @@ function append_path() {
 }
 
 # General
-export EDITOR="vim"
+export EDITOR="nvim"
 export SVN_EDITOR=$EDITOR
 export bin="$HOME/bin"
 prepend_path $bin
@@ -34,6 +34,7 @@ export cfg="$HOME/.config"
 ## Shell
 export sr="$cfg/shell"
 export src="$sr/config.sh"
+alias src="source $src"
 
 ## Bash
 export br="$cfg/bash"
@@ -79,8 +80,10 @@ export cpn="$cp/numpy.txt"
 export cpp="$cp/pandas.txt"
 export cps="$cp/seaborn.txt"
 export cpt="$cp/typing.txt"
-export cr="$cs/R"
-export cv="$cs/vi"
+export cv="$cs/vim"
+export cn="$cs/nvim"
+export cng="$cn/general.txt"
+export cnt="$cn/textobjects.txt"
 
 # Alias
 alias ..='cd ../'
@@ -228,6 +231,10 @@ function rtdir {
 
 
 # vim
+alias vo="vim -p"
+alias voh="vim -o"
+alias vov="vim -O"
+
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export VB="$VR/bundle"
@@ -239,14 +246,32 @@ export VFC="$VF/cpp.vim"
 export VLp="$VR/local_pre.vim"
 export VLP="$VR/local_post.vim"
 export VLP="$VR/local_post.vim"
-export VCOC="$VR/coc.vim"
-export VCOS="$VR/coc-settings.json"
+export VC="$VR/coc.vim"
+export VCS="$VR/coc-settings.json"
 
-alias vim="vim -p"
-alias vi="vim -p"
-alias vih="vim -o"
-alias viv="vim -O"
-alias vid="vim -O"
+
+# nvim
+alias vi="nvim -p"
+alias vih="nvim -o"
+alias viv="nvim -O"
+
+export PATH="$PATH:$stow/nvim/usr/bin"
+export NV="$cfg/nvim"
+export NVC="$NV/init.lua"
+export NVF="$NV/ftplugin"
+export NFP="$NVF/python.vim"
+export NFPL="$NVF/python_local.vim"
+
+export NVD="$HOME/.local/share/nvim"
+export NVA="$NV/lua/kdark"
+export NVM="$NV/lua/my"
+export NVK="$NVM/keymaps.vim"
+export NVL="$NVD/lazy"
+
+export NGB="$NVL/nvgoog"
+export NGR="$NGB/lua/nvgoog"
+export NGD="$NGR/default"
+export NGG="$NGR/google"
 
 # tmux
 export tmux="$HOME/.tmux"
