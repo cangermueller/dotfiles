@@ -16,7 +16,11 @@ function append_path() {
 }
 
 # General
-export EDITOR="nvim"
+if [[ -n $(command -v nvim) ]]; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
 export SVN_EDITOR=$EDITOR
 export bin="$HOME/bin"
 prepend_path $bin
