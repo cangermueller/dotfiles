@@ -129,6 +129,8 @@
 	</dict>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideTab</key>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_959A880B-1EFF-48A3-903F-969FEA1BF8B2</key>
@@ -666,7 +668,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>IBMPlexMono 14</string>
+			<string>HackNF-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
