@@ -235,9 +235,7 @@ function rtdir {
 
 
 # vim
-alias vo="vim -p"
-alias voh="vim -o"
-alias vov="vim -O"
+alias vi="$EDITOR -p"
 
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
@@ -255,10 +253,6 @@ export VCS="$VR/coc-settings.json"
 
 
 # nvim
-alias vi="nvim -p"
-alias vih="nvim -o"
-alias viv="nvim -O"
-
 export PATH="$PATH:$stow/nvim/usr/bin"
 export NV="$cfg/nvim"
 export NVC="$NV/init.lua"
@@ -284,25 +278,7 @@ alias tmux="tmux -u"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
 
-function tma {
-  local name=$1
-  if [[ -z $name ]]; then
-    cmd="tmux attach || tmux new"
-  else
-    cmd="tmux attach -t $name || tmux new -s $name"
-  fi
-  eval $cmd
-}
-
-function tmn {
-  local name=$1
-  cmd="tmux new"
-  if [[ -n $name ]]; then
-    cmd="$cmd -s $name"
-  fi
-  eval $cmd
-}
-
+tma() { tmux new-session -A -s $1; }
 
 # Python
 
