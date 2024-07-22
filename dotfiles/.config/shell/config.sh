@@ -246,8 +246,9 @@ export NM="$NVL/my"
 export NMI="$NM/init.lua"
 export NMK="$NM/keymaps.lua"
 export NMU="$NM/utils.lua"
+
 export NP="$NVL/plugins"
-export NPM="$NP/misc.lua"
+export NPI="$NP/init.lua"
 
 export NG="$NVY/nvgoog/lua/nvgoog"
 export NGD="$NG/default"
