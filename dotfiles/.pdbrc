@@ -1,2 +1,0 @@
-alias logson from absl import logging; logging.set_verbosity(logging.INFO)
-alias logsoff from absl import logging; logging.set_verbosity(logging.FATAL)
