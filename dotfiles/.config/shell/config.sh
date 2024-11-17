@@ -74,11 +74,14 @@ export docs="$HOME/docs"
 export cs="$docs/cheat"
 export cb="$cs/bash"
 export cp="$cs/python"
+export cpg="$cp/general.txt"
 export cpn="$cp/numpy.txt"
 export cpp="$cp/pandas.txt"
+export cpr="$cp/re.txt"
 export cps="$cp/seaborn.txt"
 export cpt="$cp/typing.txt"
 export cv="$cs/vim"
+export cvg="$cv/general.txt"
 export cn="$cs/nvim"
 export cng="$cn/general.txt"
 export cnt="$cn/textobjects.txt"
@@ -223,6 +226,11 @@ function ctdir {
   eval 'cd $tdir'
 }
 
+function stdir {
+  echo $tdir
+  ls $tdir/*
+}
+
 function rtdir {
   rm_confirm.py $(ltdir)
 }
@@ -240,11 +248,14 @@ export PATH="$PATH:$stow/nvim/squashfs-root/usr/bin"
 export NV="$cfg/nvim"
 export NVI="$NV/init.lua"
 export NVF="$NV/ftplugin"
+export NVFP="$NVF/python.lua"
 export NVL="$NV/lua"
 
 export NM="$NVL/my"
 export NMI="$NM/init.lua"
+export NMC="$NM/commands.lua"
 export NMK="$NM/keymaps.lua"
+export NMO="$NM/options.lua"
 export NMU="$NM/utils.lua"
 
 export NP="$NVL/plugins"
@@ -328,7 +339,7 @@ alias ports="port search"
 # Git
 alias gg="git"
 alias ggs='git status -u'
-alias ggc='git commit -m'
+alias ggc='git commit'
 alias ggca='git add -A :/ && git commit -a -m'
 alias ggcc='ggca "Update configs"'
 alias ggcd='ggca "Update documentation"'
