@@ -16,8 +16,6 @@ function append_path() {
 }
 
 # General
-export EDITOR="nvim"
-export SVN_EDITOR=$EDITOR
 export bin="$HOME/bin"
 prepend_path $bin
 export tmp="$HOME/tmp"
@@ -76,11 +74,14 @@ export docs="$HOME/docs"
 export cs="$docs/cheat"
 export cb="$cs/bash"
 export cp="$cs/python"
+export cpg="$cp/general.txt"
 export cpn="$cp/numpy.txt"
 export cpp="$cp/pandas.txt"
+export cpr="$cp/re.txt"
 export cps="$cp/seaborn.txt"
 export cpt="$cp/typing.txt"
 export cv="$cs/vim"
+export cvg="$cv/general.txt"
 export cn="$cs/nvim"
 export cng="$cn/general.txt"
 export cnt="$cn/textobjects.txt"
@@ -225,14 +226,55 @@ function ctdir {
   eval 'cd $tdir'
 }
 
+function stdir {
+  echo $tdir
+  ls $tdir/*
+}
+
 function rtdir {
   rm_confirm.py $(ltdir)
 }
 
-
-# vim
+# Editor
+export EDITOR="nvim"
 alias vi="$EDITOR -p"
 
+## nvim
+export FD="$HOME/tmp/fen/dotfiles"
+export FN="$FD/.config/nvim"
+export FNI="$FN/init.lua"
+
+export PATH="$PATH:$stow/nvim/squashfs-root/usr/bin"
+export NV="$cfg/nvim"
+export NVI="$NV/init.lua"
+export NVF="$NV/ftplugin"
+export NVFP="$NVF/python.lua"
+export NVL="$NV/lua"
+
+export NM="$NVL/my"
+export NMI="$NM/init.lua"
+export NMC="$NM/commands.lua"
+export NMK="$NM/keymaps.lua"
+export NMO="$NM/options.lua"
+export NMU="$NM/utils.lua"
+
+export NP="$NVL/plugins"
+export NPI="$NP/init.lua"
+
+export NG="$NVY/nvgoog/lua/nvgoog"
+export NGD="$NG/default"
+export NGG="$NG/google"
+
+export NVD="$HOME/.local/share/nvim"
+export NVY="$NVD/lazy"
+
+function clean_nvim {
+  rm -rf ~/.local/share/nvim
+  rm -rf ~/.local/state/nvim
+  rm -rf ~/.cache/nvim
+}
+
+## vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
 export VB="$VR/bundle"
@@ -247,26 +289,6 @@ export VLP="$VR/local_post.vim"
 export VC="$VR/coc.vim"
 export VCS="$VR/coc-settings.json"
 
-
-# nvim
-export PATH="$PATH:$stow/nvim/usr/bin"
-export NV="$cfg/nvim"
-export NVC="$NV/init.lua"
-export NVF="$NV/ftplugin"
-export NFP="$NVF/python.vim"
-export NFPL="$NVF/python_local.vim"
-
-export NVD="$HOME/.local/share/nvim"
-export NVA="$NV/lua/kdark"
-export NVM="$NV/lua/my"
-export NVK="$NVM/keymaps.vim"
-export NVL="$NVD/lazy"
-
-export NGB="$NVL/nvgoog"
-export NGR="$NGB/lua/nvgoog"
-export NGD="$NGR/default"
-export NGG="$NGR/google"
-
 # tmux
 export tmux="$HOME/.tmux"
 export trc="$HOME/.tmux.conf"
@@ -274,7 +296,13 @@ alias tmux="tmux -u"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
 
-tma() { tmux new-session -A -s $1; }
+function tma {
+  cmd="tmux new-session -A"
+  if [[ -n $1 ]]; then
+    cmd="$cmd -s $1"
+  fi
+  eval $cmd
+}
 
 # Python
 
@@ -311,7 +339,7 @@ alias ports="port search"
 # Git
 alias gg="git"
 alias ggs='git status -u'
-alias ggc='git commit -m'
+alias ggc='git commit'
 alias ggca='git add -A :/ && git commit -a -m'
 alias ggcc='ggca "Update configs"'
 alias ggcd='ggca "Update documentation"'
