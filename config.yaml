@@ -10,7 +10,6 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
   link_on_import: link
-  minversion: 1.10.0
 dotfiles:
   f_shell_config.sh:
     dst: ~/.config/shell/config.sh
@@ -48,10 +47,6 @@ dotfiles:
     dst: ~/bin/fzf_preview.sh
     link: absolute
     src: bin/fzf_preview.sh
-  f_replace.py:
-    dst: ~/bin/replace.py
-    link: absolute
-    src: bin/replace.py
   f_gitconfig:
     dst: ~/.gitconfig
     link: absolute
