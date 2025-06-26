@@ -10,7 +10,6 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
   link_on_import: link
-  minversion: 1.10.0
 dotfiles:
   f_shell_config.sh:
     dst: ~/.config/shell/config.sh
@@ -48,10 +47,6 @@ dotfiles:
     dst: ~/bin/fzf_preview.sh
     link: absolute
     src: bin/fzf_preview.sh
-  f_replace.py:
-    dst: ~/bin/replace.py
-    link: absolute
-    src: bin/replace.py
   f_gitconfig:
     dst: ~/.gitconfig
     link: absolute
@@ -64,30 +59,14 @@ dotfiles:
     dst: ~/.ipython/profile_default/startup/00_default.py
     link: absolute
     src: .ipython/00_default.py
-  f_keras_json:
-    dst: ~/.keras/keras.json
-    link: absolute
-    src: .keras/keras.json
-  f_rprofile:
-    dst: ~/.Rprofile
-    link: absolute
-    src: .Rprofile
   f_screenrc:
     dst: ~/.screenrc
     link: absolute
     src: .screenrc
-  f_sync_configs.sh:
-    dst: ~/bin/sync_configs.sh
-    link: absolute
-    src: bin/sync_configs.sh
   f_abspath.py:
     dst: ~/bin/abspath.py
     link: absolute
     src: bin/abspath.py
-  f_rm_confirm.py:
-    dst: ~/bin/rm_confirm.py
-    link: absolute
-    src: bin/rm_confirm.py
   f_tmux_conf:
     dst: ~/.tmux.conf
     link: absolute
@@ -102,10 +81,6 @@ dotfiles:
     src: .vim/.vimrc
     actions:
     - vundle
-  f_pymolrc:
-    dst: ~/.pymolrc
-    link: absolute
-    src: .pymolrc
 
 profiles:
   base:
@@ -122,14 +97,8 @@ profiles:
     - f_gitconfig
     - f_htoprc
     - f_ipython_default
-    - f_keras_json
-    - f_rprofile
-    - f_sync_configs.sh
     - f_abspath.py
-    - f_rm_confirm.py
-    - f_rprofile
     - f_screenrc
     - f_tmux_conf
     - f_tmux_sessions_default_conf
     - f_vimrc
-    - f_pymolrc

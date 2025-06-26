@@ -231,10 +231,6 @@ function stdir {
   ls $tdir/*
 }
 
-function rtdir {
-  rm_confirm.py $(ltdir)
-}
-
 # Editor
 export EDITOR="nvim"
 alias vi="$EDITOR -p"
